@@ -1,5 +1,7 @@
 import Cookies from 'universal-cookie';
 
+// ----------------------Cookies------------------------//
+
 const cookies = new Cookies();
 
 
@@ -47,3 +49,27 @@ export const setCookies = (key, value, options) => {
             });
         }
     
+
+
+// ------------------------Validation-------------------------//
+
+export const validateEmail = email => {
+    var regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regex.test(String(email).toLowerCase());
+  };
+  
+  export const validateFullName = name => {
+    const regex = /^[a-zA-Z._-]{3,}(?: [a-zA-Z._-]+){0,2}$/;
+    return regex.test(String(name).toLowerCase());
+  };
+  
+  export const validateExpiry = date => {
+    const regex = /^(0[1-9]|1[0-2])\/([0-9]{4})$/;
+    return regex.test(String(date).toLowerCase());
+  };
+  export const validateuserUniqueName = userUniqueName => {
+    var regex = /^[a-z0-9-]{6,10}$/;
+    return regex.test(String(userUniqueName));
+  };
+  
+  
