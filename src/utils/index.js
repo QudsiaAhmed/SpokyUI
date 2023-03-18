@@ -1,75 +1,138 @@
-import Cookies from 'universal-cookie';
+import Cookies from "universal-cookie";
 
 // ----------------------Cookies------------------------//
 
 const cookies = new Cookies();
 
-
 export const getCookies = (key) => {
-    const cookie = cookies.get(key);
-    if (cookie) {
-        return cookie;
-    }
-    return null;
-}
-
+  const cookie = cookies.get(key);
+  if (cookie) {
+    return cookie;
+  }
+  return null;
+};
 
 export const setCookies = (key, value, options) => {
-    const cookie = cookies.get(key);
-    const expiryDate= cookie?.expiryDate
-    // delete value['expiryDate']
-    // console.log(value,'deleted');
-    if (cookie) {
+  const cookie = cookies.get(key);
+  const expiryDate = cookie?.expiryDate;
+  // delete value['expiryDate']
+  // console.log(value,'deleted');
+  if (cookie) {
     // if (cookie && options.timer !== 'dont update') {
-        cookies.set(key, {...value, expiryDate}, {
-            ...options,
-            path: '/',
-            
-            expires: new Date(cookie?.expiryDate)
-        });
-    } 
-    else {
-        const expiryDate = new Date(new Date().getTime() + 1000 * 60 * 120);
-        cookies.set(key, { ...value, expiryDate }, {
-            ...options,
-            path: '/',
-            expires: expiryDate
-        });
+    cookies.set(
+      key,
+      { ...value, expiryDate },
+      {
+        ...options,
+        path: "/",
+
+        expires: new Date(cookie?.expiryDate),
+      }
+    );
+  } else {
+    const expiryDate = new Date(new Date().getTime() + 1000 * 60 * 120);
+    cookies.set(
+      key,
+      { ...value, expiryDate },
+      {
+        ...options,
+        path: "/",
+        expires: expiryDate,
+      }
+    );
+  }
+};
+
+export const delCookies = (key, options) => {
+  cookies.remove(key, {
+    options,
+  });
+};
+
+//------------------------LocalStorage------------------------//
+
+
+
+export const setStrLocalStorage = (key, value) => {
+    try {
+      localStorage.setItem(key, value);
+      return true;
+    } catch (error) {
+      return false;
     }
+  };
+  
+  export const getStrLocalStorage = (key) => {
+    const item = localStorage.getItem(key);
+    if (item) {
+      return item;
+    } else {
+      return null;
+    }
+  };
+  
 
-}
 
 
+export const setObjLocalStorage = (key, value) => {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
 
-    export const delCookies = (key, options) => {
-          
-            cookies.remove(key, {
-                options,
-               
-            });
-        }
-    
+export const getObjLocalStorage = (key) => {
+  const item = JSON.parse(localStorage.getItem(key));
+  if (item) {
+    return item;
+  } else {
+    return null;
+  }
+};
+
+export const removeLocalStorage = (key) => {
+    try {
+        localStorage.removeItem(key);
+        return true;
+      } catch (error) {
+        return false;
+      }
+  };
+
+
+  export const clearLocalStorage = () => {
+    try {
+        localStorage.clear();
+        return true;
+      } catch (error) {
+        return false;
+      }
+  };
+  
+
+
 
 
 // ------------------------Validation-------------------------//
 
-export const validateEmail = email => {
-    var regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return regex.test(String(email).toLowerCase());
-  };
-  
-  export const validateFullName = name => {
-    const regex = /^[a-zA-Z._-]{3,}(?: [a-zA-Z._-]+){0,2}$/;
-    return regex.test(String(name).toLowerCase());
-  };
-  
-  export const validateExpiry = date => {
-    const regex = /^(0[1-9]|1[0-2])\/([0-9]{4})$/;
-    return regex.test(String(date).toLowerCase());
-  };
-  export const validateuserUniqueName = userUniqueName => {
-    var regex = /^[a-z0-9-]{6,10}$/;
-    return regex.test(String(userUniqueName));
-  };
-  
-  
+export const validateEmail = (email) => {
+  var regex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return regex.test(String(email).toLowerCase());
+};
+
+export const validateFullName = (name) => {
+  const regex = /^[a-zA-Z._-]{3,}(?: [a-zA-Z._-]+){0,2}$/;
+  return regex.test(String(name).toLowerCase());
+};
+
+export const validateExpiry = (date) => {
+  const regex = /^(0[1-9]|1[0-2])\/([0-9]{4})$/;
+  return regex.test(String(date).toLowerCase());
+};
+export const validateuserUniqueName = (userUniqueName) => {
+  var regex = /^[a-z0-9-]{6,10}$/;
+  return regex.test(String(userUniqueName));
+};
