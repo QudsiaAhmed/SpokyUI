@@ -1,16 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-import AuthFlow from './containers/authFlow';
-import MainFlow from './containers/mainFlow';
+import logo from "./logo.svg";
+import "./App.css";
+import Routers from "./routes";
 
 function App() {
-
   return (
     <div className="App">
-     
-{/* <MainFlow/>       */}
-<AuthFlow/>      
-
+      <Routers />
     </div>
   );
 }
