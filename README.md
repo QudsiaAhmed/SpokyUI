@@ -57,7 +57,7 @@ npm run start
 - Organized WorkFlow.
 - Ready to go Redux Setup!
 - Routing Setup Already Done!
-- Routing Gaurding Already Done!
+- Route Gaurding Already Done!
 - /Utils have bultin functions for local storage, cookies, basic validation.
 - All Routings have been mentioned in just one place for convenience -> /src/app.navigator
 - Flow:
