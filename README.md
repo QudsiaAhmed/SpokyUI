@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+<p align="center">
+    <a href="" rel="noopener">
+    <!-- <h4>React Native Boilerplate</h4> -->
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center">React Js Boilerplate</h3>
 
-## Available Scripts
+<!-- <div align="center">
+  [![Status](https://img.shields.io/badge/status-active-success.svg)]() 
+  [![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
+  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
+  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+</div> -->
 
-In the project directory, you can run:
+---
 
-### `npm start`
+<p align="center"> Made to speed up the setting up and the development process of React JS.
+    <br> 
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📝 Table of Contents
+- [About](#about)
+- [Installing](#installing)
+- [What's Does it Include?](#usage)
+- [Ackowledgements](#acknowledgement)
+<!-- - [Built Using](#built_using) -->
+<!-- - [Authors](#authors) -->
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🧐 About <a name = "about"></a>
+<!-- Write about 1-2 paragraphs describing the purpose of your project. -->
+Designed to speed up the setting up and the development process of React Js.
 
-### `npm test`
+<!-- ## 🏁 Getting Started <a name = "getting_started"></a>
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.  -->
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Installing <a name = "installing"></a>
+A step by step series of examples that tell you how to get a development env running.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+cd project 
+npm i
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+And You're Done!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Now Run to Get Started
 
-### `npm run eject`
+```
+npm run start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🎈 What does it include? <a name="usage"></a>
+- Made using React 18.2.0
+- Organized WorkFlow.
+- Ready to go Redux Setup!
+- Routing Setup Already Done!
+- Routing Gaurding Already Done!
+- /Utils have bultin functions for local storage, cookies, basic validation.
+- All Routings have been mentioned in just one place for convenience -> /src/app.navigator
+- Flow:
+    - Authentication: AuthFlow
+    - Normal User Flow: MainFlow
+- All URLs have been mentioned in a single place just change it there and import it for use in other files -> 
+/utils/constant.js
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<!-- ## ⛏️ Built Using <a name = "built_using"></a>
+- [MongoDB](https://www.mongodb.com/) - Database
+- [Express](https://expressjs.com/) - Server Framework
+- [VueJs](https://vuejs.org/) - Web Framework
+- [NodeJs](https://nodejs.org/en/) - Server Environment -->
 
-## Learn More
+<!-- ## ✍️ Authors <a name = "authors"></a>
+- [@](https://github.com/kylelobo) - Idea & Initial work
+See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project. -->
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+- Team MERN - Tezeract
