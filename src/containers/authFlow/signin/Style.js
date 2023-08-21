@@ -8,4 +8,3 @@ const Container = {
   export const styles = {
     Container: Container,
   };
-  
