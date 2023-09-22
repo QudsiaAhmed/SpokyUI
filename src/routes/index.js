@@ -1,10 +1,12 @@
 import { Routes, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProtectedRoutes from "./ProtectedRoute";
 import UnProtectedRoutes from "./UnProtectedRoute";
-import Signin from "../containers/authFlow/signin";
-import Signup from "../containers/authFlow/signup";
-import About from "../containers/mainFlow/about/About";
-
+import LeftSide from "../components/LeftSide";
+import SignIn from "../containers/authFlow/signin/SignIn";
+import SignUp from "../containers/authFlow/signup/SignUp";
+import Sentemail from "../components/Sentemail";
+import Setpassword from "../components/Setpassword";
 import React from "react";
 
 const Routers = () => {
@@ -12,15 +14,30 @@ const Routers = () => {
     <Routes>
       {
         <>
-        
-          <Route path="/" element={<UnProtectedRoutes Component={Signin} />} />
+
+          <Route path="/" element={<UnProtectedRoutes Component={SignIn} />} />
           <Route
             path="/signup"
-            element={<UnProtectedRoutes Component={Signup} />}
+            element={<UnProtectedRoutes Component={SignUp} />}
+          />
+          <Route
+            path="/signin"
+            element={<UnProtectedRoutes Component={SignIn} />}
+          />
+          <Route
+            path="/signin"
+            element={<UnProtectedRoutes Component={SignIn} />}
           />
 
-          <Route path="/" element={<ProtectedRoutes Component={About} />} />
-          
+          <Route
+            path="/sentemail"
+            element={<UnProtectedRoutes Component={Sentemail} />}
+          />
+
+          <Route
+            path="/setpassword"
+            element={<UnProtectedRoutes Component={Setpassword} />}
+          />
         </>
       }
     </Routes>

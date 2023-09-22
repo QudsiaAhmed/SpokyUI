@@ -1,0 +1,115 @@
+  .leftside {
+      position: relative;
+      width: 40%;
+      height: 97vh;
+      background-color: #FF8C7D;
+      margin-top: 14px;
+      margin-left: 21px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+  }
+
+  .spokyheading {
+      position: absolute;
+      top: 1.5rem;
+      left: 3.3rem;
+  }
+
+  .spokyheading h1 {
+      font-family: "Outfit";
+      font-weight: 400;
+      font-size: 33px;
+      margin: 0;
+      color: #fff;
+  }
+  .chatbotheading {
+      width: 100%;
+      max-width: 470px;
+      position: absolute;
+      top: 12rem;
+      left: 1rem;
+    }
+    
+    .chatbotheading h1 {
+      font-family: "Outfit";
+      font-weight: 700;
+      font-size: 50px;
+      line-height: 1.2;
+      margin: 0;
+      color: #fff;
+
+    }
+    
+    .chatbotheading h1 span {
+      display: block;
+      text-indent: -5rem; 
+    }
+    
+    .chatbotheading h1 span:nth-child(2) {
+      text-indent: -2rem; 
+    }
+    
+    .chatbotheading h1 span:nth-child(3) {
+      text-indent: -3rem; 
+    }
+    .chatbotheading h1 span:nth-child(4) {
+      text-indent: -8rem; 
+    }
+
+    .chatbot-image-container {
+      position: absolute;
+      bottom: 20px; 
+      left: 2rem;
+      right: 2rem; 
+      text-align: center;
+    }
+    
+    .chatbot-image {
+      max-width: 100%;
+      margin-left: -4rem;
+    }
+  /* Responsive  */
+  @media (max-width: 1399px) {
+    .chatbotheading h1{
+      font-size: 40px;
+    }
+      .chatbotheading h1 span {
+        text-indent: 1rem;
+      }
+      
+      .chatbotheading h1 span:nth-child(2) {
+        text-indent: 1rem;
+      }
+      
+      .chatbotheading h1 span:nth-child(3) {
+        text-indent: 1.5rem;
+      }
+      
+      .chatbotheading h1 span:nth-child(4) {
+        text-indent: 1rem;
+      }
+    }
+    
+  @media (max-width: 768px) {
+    .chatbotheading h1{
+      font-size: 40px;
+    }
+      .chatbotheading h1 span {
+        text-indent: 1rem;
+      }
+      
+      .chatbotheading h1 span:nth-child(2) {
+        text-indent: 1rem;
+      }
+      
+      .chatbotheading h1 span:nth-child(3) {
+        text-indent: 1.5rem;
+      }
+      
+      .chatbotheading h1 span:nth-child(4) {
+        text-indent: 1rem;
+      }
+    }
+    
+
+    

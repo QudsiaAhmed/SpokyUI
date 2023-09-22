@@ -1,0 +1,254 @@
+
+.signin-container {
+  /* margin-top: 6rem ; */
+  width: 90%;
+  
+}
+
+.signin-box {
+  width: 90%; 
+  height: auto;
+  /* max-width: 640px;  */
+  border-radius: 35px;
+  border: 1px solid #FF5841;
+  position: relative;
+  padding: 1rem;
+  text-align: left;
+}
+
+
+.signin-box h1 {
+  margin: 0;
+    padding-left: 4rem;
+    margin-top: 3rem;
+}
+
+.signin-box p {
+  margin: 0;
+  font-size: 18px;
+  padding-left: 4rem;
+  margin-top: 1rem;
+}
+
+.btn-signup{
+width: 70% !important;
+left: 1rem;
+height: 50px;
+padding: 19px, 0px, 20px, 0px;
+gap: 8px;
+background: linear-gradient(0deg, #62D2E9, #62D2E9);
+top: 2rem;
+border-radius: 50px !important;
+}
+.inputdiv{
+  padding-left: 4rem;
+}
+.dont-have-account{
+margin-top: 3rem;
+font-size: 20px;
+margin-left: 8%;
+}
+.signuplink{
+color: #62D2E9;
+font-size: 20px;
+}
+.signin-box .MuiButton-root {
+  margin-top: 1rem;
+  background-color: #FF5841;
+  color: #fff;
+}
+
+.signin-box .MuiTypography-body2 a {
+  text-decoration: none;
+  color: rgb(112, 106, 106);
+
+}
+
+.app {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+@media (max-width: 1000px) {
+  .app {
+    flex-direction: column; 
+  }
+}
+
+/* Small screens (sm) */
+@media (max-width: 600px) {
+  .signin-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    /* max-width: 30rem; */
+    height: auto; 
+    border-radius: 35px;
+    border: 1px solid #FF5841;
+    position: relative;
+    padding: 1rem;
+  }
+
+  .btn-signup {
+    
+    max-width: 22rem; 
+    height: 50px;
+    margin-top: 2rem;
+    border-radius: 50px !important;
+    
+  }
+
+  .signin-box h1 {
+    margin: 0;
+    padding: 0; 
+    margin-top: 1rem; 
+    font-size: 2rem !important; 
+    margin-left: 3.5rem;
+  }
+
+  .email-input ,
+  .paswword-input  {
+    width: 100% !important;
+  }
+
+  .signin-box p {
+    margin: 0;
+    font-size: 16px; 
+    margin-top: 1rem; 
+  }
+
+  .dont-have-account {
+    margin-top: 2rem;
+    font-size: 16px; 
+    margin-left: 4rem !important;
+    
+  }
+
+  .signuplink {
+    color: #62D2E9;
+    font-size: 16px; 
+  }
+
+  .or {
+    margin: 0;
+    font-size: 1rem;
+    margin-top: 1rem;
+    /* margin-left: 8rem !important; */
+  }
+
+  .gogleimgsignin {
+    margin-top: 1rem;
+    margin-left: -1rem;
+  }
+
+  .forgot-password {
+    margin-right: 5.3rem !important; 
+    font-size: 13px !important;
+  }
+}
+
+/* width 500px or less */
+@media (max-width: 500px) {
+  .signin-box {
+    width: 90%;
+    height: auto;
+    border-radius: 35px;
+    border: 1px solid #FF5841;
+    position: relative;
+    padding: 1rem;
+  }
+  .inputdiv{
+    padding-left: 3rem;
+  }
+  
+
+
+  .signin-box h1 {
+    margin: 0;
+    padding-left: 3rem;
+    margin-top: 3rem;
+    font-size: 2rem !important;
+  }
+
+  .email-input,
+  .paswword-input {
+    width: 100% !important;
+  }
+
+  .signin-box p {
+    margin: 0;
+    font-size: 16px;
+    padding-left: 3rem;
+    margin-top: 1rem;
+  }
+
+  .dont-have-account {
+    margin-top: 2.3rem;
+    font-size: 16px;
+    margin-left: 3rem !important;
+  }
+
+  .signuplink {
+    color: #62D2E9;
+    font-size: 16px;
+  }
+
+  .or {
+    margin: 0;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem !important;
+  }
+
+  .gogleimgsignin {
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+
+  .forgot-password {
+    margin-right: 5rem !important;
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .forgot-password {
+    margin-right: 4rem !important;
+    font-size: 13px !important;
+  }
+  .gogleimgsignin {
+    margin-top: 1rem;
+    margin-left: 2rem;
+  }
+  .btn-signup {
+    max-width: 19rem;
+    /* height: 50px;
+    margin-top: 2rem; */
+    border-radius: 50px !important;
+  }
+  .inputdiv{
+    padding-left: 2rem;
+  }
+  .dont-have-account {
+    margin-top: 2.3rem;
+    font-size: 16px;
+    margin-left: 1rem !important;
+  }
+  .signin-box h1 {
+    margin: 0;
+    padding-left: 2rem;
+    margin-top: 1.7rem;
+    font-size: 1.8rem !important;
+  }
+  .signin-box p {
+    margin: 0;
+    font-size: 16px;
+    padding-left: 2rem;
+    margin-top: 1rem;
+  }
+}

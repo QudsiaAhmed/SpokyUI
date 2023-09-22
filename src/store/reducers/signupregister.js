@@ -5,8 +5,8 @@ const initialState = {
   
 };
 
-export const registerSlice = createSlice({
-  name: "register",
+export const signupregister = createSlice({
+  name: "signupregister",
   initialState,
   reducers: {
     setUserData: (state, action) => {
@@ -18,6 +18,6 @@ export const registerSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const {setUserData} = registerSlice.actions;
+export const {setUserData} = signupregister.actions;
 
-export default registerSlice.reducer;
+export default signupregister.reducer;

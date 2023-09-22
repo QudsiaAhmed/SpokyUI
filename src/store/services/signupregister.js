@@ -1,7 +1,7 @@
 import {setUserData} from "../reducers/register";
 const basePath = "https://backend/backend";//here you may use backend url
 
-export const register = (email, name, password,obj,arr) => async (dispatch) => {
+export const signupregister = (email, name, password,obj,arr) => async (dispatch) => {
   try {
 
     // console.log("email,name,password,obj,arr", email, name, password,obj,arr)

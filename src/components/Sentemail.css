@@ -1,0 +1,59 @@
+.email-container {
+  margin-top: 9rem;
+  width: 60%;
+}
+
+.email-box {
+  width: 640px;
+  height: 580px;
+  border-radius: 35px;
+  border: 1px solid #FF5841;
+  position: relative;
+  top: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+.for-signup {
+  align-self: flex-start;
+  font-size: 1.2rem !important;
+  font-family: 'Outfit';
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 1rem !important;
+}
+.sentemail {
+  text-align: center !important; 
+  margin-top: 2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: 7.5rem !important;
+  font-size: 2rem !important;
+  color: #4F4F4F;
+}
+.verificationemail{
+  font-size: 1rem !important;
+  color: #4F4F4F;
+  margin-left: 4rem !important;
+
+
+}
+.sendagainemail{
+ margin-top: 6rem !important; 
+ margin-left: 10rem !important;
+ color: #4F4F4F;
+}
+.emailapp{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  justify-content: center; 
+}
+@media (max-width: 1000px) {
+  .emailapp {
+    flex-direction: column; 
+  }
+}
