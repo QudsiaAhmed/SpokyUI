@@ -10,8 +10,8 @@ import { Link } from 'react-router-dom';
 const SignIn = () => {
   return (
     <>
-      <div className='app'>
-        {/* <LeftSide /> */}
+      <div className='ScreenContainer'>
+        <LeftSide />
         <Container maxWidth="sm" className="signin-container">
           <Box className="signin-box" >
             <Typography variant="h4" component="h1" style={{ fontFamily: 'Outfit', fontWeight: 'bold', fontWeight: '600', fontSize: '2.5rem' }}>
@@ -27,6 +27,7 @@ const SignIn = () => {
                     Email
                   </Typography>
                   <TextField
+                  
                     sx={{ width: '80%' }}
                     margin="normal"
                     InputProps={{
@@ -60,7 +61,7 @@ const SignIn = () => {
                 />
               </div>
               <Typography  className='forgot-password' variant="body2" component="p" style={{ textAlign: 'right', marginRight: '20%', color: 'black', fontSize: '15px', marginTop: '0' }}>
-                <Link to='/setpassword'>
+                <Link to='/recoverpassword'>
                   Forgot password?
                 </Link>
               </Typography>
@@ -77,8 +78,8 @@ const SignIn = () => {
                 <Link to='/SignUp' className='signuplink'>Signup?</Link>
               </Typography>
             </div>
-            <p className='or' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',marginRight: '20%', marginTop: '1.2rem' }}>OR</p>
-            <div className='gogleimgsignin' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '4rem', marginTop: '1rem' }}>
+            <p className='or' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',marginRight: '10%', marginTop: '1.2rem' }}>OR</p>
+            <div className='gogleimgsignin' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: '1%', marginTop: '1rem' }}>
               <img src={GoogleImg} alt="Google" style={{ marginRight: '0' }} />
               <p className='gogglesignin' style={{ margin: '0', paddingLeft: '1rem' }}>Google</p>
             </div>

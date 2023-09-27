@@ -7,6 +7,9 @@ import SignIn from "../containers/authFlow/signin/SignIn";
 import SignUp from "../containers/authFlow/signup/SignUp";
 import Sentemail from "../components/Sentemail";
 import Setpassword from "../components/Setpassword";
+import RecoverPassword from "../components/RecoverPassword";
+import ForRecoveryPassword from "../components/ForRecoveryPassword";
+import UpdatePassword from "../components/UpdatePassword";
 import React from "react";
 
 const Routers = () => {
@@ -15,7 +18,7 @@ const Routers = () => {
       {
         <>
 
-          <Route path="/" element={<UnProtectedRoutes Component={SignIn} />} />
+          <Route path="/" element={<UnProtectedRoutes Component={RecoverPassword} />} />
           <Route
             path="/signup"
             element={<UnProtectedRoutes Component={SignUp} />}
@@ -37,6 +40,18 @@ const Routers = () => {
           <Route
             path="/setpassword"
             element={<UnProtectedRoutes Component={Setpassword} />}
+          />
+           <Route
+            path="/recoverpassword"
+            element={<UnProtectedRoutes Component={RecoverPassword} />}
+          />
+                     <Route
+            path="/forrecoverypassword"
+            element={<UnProtectedRoutes Component={ForRecoveryPassword} />}
+          />
+      <Route
+            path="/updatepassword"
+            element={<UnProtectedRoutes Component={UpdatePassword} />}
           />
         </>
       }

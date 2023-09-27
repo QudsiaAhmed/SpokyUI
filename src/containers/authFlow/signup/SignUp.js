@@ -10,8 +10,8 @@ import { Link } from 'react-router-dom'
 const SignUp = () => {
   return (
     <>
-      <div className='app-signin'>
-        {/* <LeftSide/> */}
+      <div className='ScreenContainer'>
+        <LeftSide/>
         <Container maxWidth="sm" className="signup-container">
           <Box className="signup-box">
             <Typography
@@ -46,7 +46,7 @@ const SignUp = () => {
 
                   }}
                 >
-                  LastName
+                  FirstName
                 </Typography>
                 <TextField
                 sx={{ width: '80%' }}
@@ -117,46 +117,13 @@ const SignUp = () => {
                   }}
                 />
               </div>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-start',
-                }}
-              >
-                <Typography
-                  variant="body2"
-                  style={{
-                    color: '#333',
-                    paddingLeft: '0',
-                    fontSize: '1rem',
-                    fontWeight: 'bold',
-                  }}
-                >
-                  Password
-                </Typography>
-                <TextField
-           sx={{ width: '80%' }}
-
-                  variant="outlined"
-                  margin="normal"
-                  type="password"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <LockIcon />
-                      </InputAdornment>
-                    ),
-                    style: { width: '100%' },
-                  }}
-                />
-              </div>
+             
             </div>
-            <Button variant="contained" color="primary" className='btn-signup'>
-              <Link to='/sentemail'>
+            <Link to="/sentemail">
+              <Button variant="contained" color="primary" className='btn-signup'>
                 Create Account
-              </Link>
-            </Button>
+              </Button>
+            </Link>
             <div className="dont-have-account">
               <Typography component="p">
                 Have an account?
@@ -167,7 +134,7 @@ const SignUp = () => {
             </div>
             <p
               className='or'
-              style={{ marginLeft: '14rem', marginTop: '1.2rem' }}
+              style={{ marginLeft: '10rem', marginTop: '1.2rem' }}
             >
               OR
             </p>

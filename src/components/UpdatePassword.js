@@ -4,25 +4,26 @@ import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
 import LeftSide from './LeftSide';
 import './SetPassword.css';
+import { Update } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
-const SetPassword = () => {
+const UpdatePassword = () => {
   return (
     <div className='ScreenContainer'>
       <LeftSide />
       <Container maxWidth="sm" className="pwd-container">
         <Box className="pwd-box">
-          <Typography variant="h4" className="setpassword" component="h1" style={{ fontFamily: 'Outfit', fontWeight: 'bold', fontSize: '2.5rem' }}>
-            Set Password
+          <Typography variant="h4" className="updatepassword" component="h1" style={{ fontFamily: 'Outfit', fontWeight: 'bold', fontSize: '2.5rem', marginBottom: '2rem' }}>
+            Update New Password
           </Typography>
           <div style={{ paddingLeft: "2rem" }}>
             <div className="input-group">
               <Typography variant="body2" className="label-text">
-                Password
+                Enter New Password
               </Typography>
               <TextField
-                placeholder="Enter Password"
-
                 margin="normal"
+                placeholder="Enter New Password" 
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -34,14 +35,14 @@ const SetPassword = () => {
               />
             </div>
             <div className="input-group">
-              <Typography variant="body2" className="label-text">
+              <Typography variant="body2" className="repeat-password" >
                 Repeat Password
               </Typography>
               <TextField
                 variant="outlined"
                 margin="normal"
                 type="password"
-                placeholder="Enter Your Password Again"
+                placeholder="Enter Your New Password Again For Confirmation" 
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -53,13 +54,15 @@ const SetPassword = () => {
               />
             </div>
           </div>
-          <Button variant="contained" color="primary" className='btn-signup'>
-            Update
-          </Button>
+          <Link to="/signin">
+            <Button variant="contained" color="primary" className='btn-signup'>
+              Update
+            </Button>
+          </Link>
         </Box>
       </Container>
     </div>
   );
 }
 
-export default SetPassword;
+export default UpdatePassword;

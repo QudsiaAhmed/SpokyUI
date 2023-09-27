@@ -1,11 +1,12 @@
 import React from 'react';
 import { Container, Box, Typography, Button } from '@mui/material';
-import './Sentemail.css';
+import './ForRecoveryPassword';
 import EmailImg from '../Images/Email.png';
 import LeftSide from './LeftSide';
+import './ForRecoveryPassword.css'
 import { Link } from 'react-router-dom';
 
-const Sentemail = () => {
+const ForRecoveryPassword = () => {
   return (
     <>
       <div className='ScreenContainer'>
@@ -40,10 +41,10 @@ const Sentemail = () => {
             </Button>
           </Link>
           <Box className="email-box" >
-          <Link to= "/Setpassword">
-            <Typography variant="h4" component="h1" className='for-signup'>
-              For Set Password
-            </Typography>
+            <Link to="/updatepassword">
+              <Typography variant="h4" component="h1" className='for-passwordrecovery'>
+                For UpdatePassword
+              </Typography>
             </Link>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginTop: '.5rem' }}>
               <img src={EmailImg} alt="Email" />
@@ -66,5 +67,5 @@ const Sentemail = () => {
   );
 }
 
-export default Sentemail;
+export default ForRecoveryPassword;
 

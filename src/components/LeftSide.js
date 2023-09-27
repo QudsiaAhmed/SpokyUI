@@ -1,6 +1,6 @@
 import React from 'react';
 import './LeftSide.css';
-import ChatBotImg from  '../Images/ChatBot.png';
+import ChatBotImg from '../Images/ChatBot.png';
 
 const LeftSide = () => {
   return (
@@ -17,8 +17,8 @@ const LeftSide = () => {
         </h1>
       </div>
       <div className='chatbot-image-container'>
-      <img className='chatbot-image' src={ChatBotImg}/>
-       </div>
+        <img className='chatbot-image' src={ChatBotImg} alt="ChatBot" />
+      </div>
     </div>
   );
 };
