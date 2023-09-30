@@ -9,40 +9,40 @@ import { Link } from 'react-router-dom';
 const RecoverPassword = () => {
   return (
     <>
-            <div className='ScreenContainer'>
-<LeftSide/>
-<Container maxWidth="sm" className="pwd-container">
-        <Box className="pwd-box">
-          <Typography variant="h4" className="setpassword" component="h1" style={{ fontFamily: 'Outfit', fontWeight: 'bold', fontSize: '2.5rem' }}>
-            Recover Your Password
-          </Typography>
-          <div style={{ paddingLeft: "2rem" }}>
-            <div className="input-group">
-              <Typography variant="body2" className="label-text">
-                Email
-              </Typography>
-              <TextField
-                margin="normal"
-                placeholder="Enter Your Email to Recover your Password"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <EmailIcon />
-                    </InputAdornment>
-                  ),
-                }}
-                className="responsive-input"
-              />
+      <div className='ScreenContainer'>
+        <LeftSide />
+        <Container maxWidth="sm" className="pwd-container">
+          <Box className="pwd-box">
+            <Typography variant="h4" className="setpassword" component="h1" style={{ fontFamily: 'Outfit', fontWeight: 'bold', fontSize: '2.5rem' }}>
+              Recover Your Password
+            </Typography>
+            <div style={{ paddingLeft: "2rem" }}>
+              <div className="input-group">
+                <Typography variant="body2" className="label-text">
+                  Email
+                </Typography>
+                <TextField
+                  margin="normal"
+                  placeholder="Enter Your Email to Recover your Password"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <EmailIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                  className="responsive-input"
+                />
+              </div>
+
             </div>
-          
-          </div>
-          <Link to= '/forrecoverypassword'>
-          <Button variant="contained" color="primary" className='btn-signup'>
-            Send
-          </Button>
-          </Link>
-        </Box>
-      </Container>
+            <Link to='/forrecoverypassword'>
+              <Button variant="contained" color="primary" className='btn-signup'>
+                Send
+              </Button>
+            </Link>
+          </Box>
+        </Container>
       </div>
 
     </>

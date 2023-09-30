@@ -18,7 +18,7 @@ const Routers = () => {
       {
         <>
 
-          <Route path="/" element={<UnProtectedRoutes Component={RecoverPassword} />} />
+          <Route path="/" element={<UnProtectedRoutes Component={SignIn} />} />
           <Route
             path="/signup"
             element={<UnProtectedRoutes Component={SignUp} />}
