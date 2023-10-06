@@ -127,10 +127,22 @@ left: 6%;
   }
 
 }
+
+@media (max-height: 780px) {
+
+  .chatbot-image{
+    width: 70%;
+  }
+
+}
+
+
+
 @media (max-width: 1181px) {
   .chatbotheading h1 {
     top:16%;
   }
+  
 
 }
 @media (max-width: 855px) {
@@ -154,3 +166,8 @@ left: 6%;
     margin-right: 2rem;
   }
 }
+/* @media (max-width:2312.50px) {
+  .chatbotheading h1{
+    font-size: 4rem !important; 
+  }
+} */
