@@ -11,9 +11,9 @@ const ChatbotCreditCompo = () => {
   const containerStyle = {
     margin: '0 auto', // Center horizontally
     marginTop: isSmallScreen ? '1rem' : '2rem', // Adjust margin-top for small screens
-    marginLeft: isSmallScreen ? '4rem' : (isMediumScreen ? '9rem' : '24.5rem'), // Adjust margin-left for medium screens
-    maxWidth: '67.4%',
-    
+    // marginLeft: isSmallScreen ? '4rem' : (isMediumScreen ? '9rem' : '24.5rem'), // Adjust margin-left for medium screens
+    maxWidth: '100%',
+  
   };
 
   const contentStyle = {
@@ -27,6 +27,8 @@ const ChatbotCreditCompo = () => {
   const iconTextContainer = {
     display: 'flex',
     alignItems: 'center',
+    fontSize:'1.7rem',
+    fontWeight:'500',
   };
 
   const iconStyle = {

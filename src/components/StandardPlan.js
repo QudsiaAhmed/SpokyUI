@@ -12,24 +12,24 @@ const StandardPlan = () => {
     backgroundImage: 'linear-gradient(90deg, #62D2E9 10.76%, #32ABC3 86.81%)', 
      color: '#fff',
     padding: '20px',
-    borderRadius: '20px',
+    borderRadius: '10px',
     boxShawdow:'none',
-    marginTop: '3.5rem',
+    marginTop: '2rem',
     [theme.breakpoints.up('sm')]: {
       width: '80%', 
-      marginLeft: '10%',
+      // marginLeft: '10%',
     },
     [theme.breakpoints.up('md')]: {
       width: '75%', 
-      marginLeft: '10%',
+      // marginLeft: '10%',
     },
     buttonStyle:{
       width: '30%',
 
     },
     [theme.breakpoints.up('lg')]: {
-      width: '65.4%',
-      marginLeft: '24.5rem',
+      width: '97%',
+      // marginLeft: '24.5rem',
     },
     buttonStyle:{
       width: '30%',
@@ -38,14 +38,21 @@ const StandardPlan = () => {
   };
 
   const buttonStyle = {
-    borderRadius: '20px',
-    backgroundColor: '#fff',
+    borderRadius: '37px',
+    backgroundColor: '#FFFFFF',
     color: '#62D2E9',
-    // width: '50%',
+    width: '18%',
     height: '50px',
+    marginRight:'2rem',
+    textTransform:'none',
+    color:'#62D2E9',
+    fontWeight:'600',
+    fontSize:"18px",
+    padding:'20px',
     '&:hover': {
-      backgroundColor: '#fff',
+      backgroundColor: '#FFFFFF',
       color: '#62D2E9',
+      boxShawdow:'none',
     },
   };
 
@@ -53,11 +60,11 @@ const StandardPlan = () => {
     <ThemeProvider theme={theme}>
       <Box sx={boxStyle}>
         <div>
-          <Typography variant="h4" fontWeight="bold" align="left">
+          <Typography variant="h4" fontWeight="bold" align="left" sx={{ color:'#FFFFFF',marginLeft:'1rem',fontWeight:'700',fontSize:'26px',marginBottom:'.4rem'}}>
             Standard Plan
           </Typography>
-          <Typography variant="p" className="chatbots" align="left">
-            Wants to level up your multiple business with more chatbots
+          <Typography variant="p" className="chatbots" align="left" sx={{ color:'#FFFFFF',marginLeft:'1rem',fontWeight:'400',fontSize:'18px'}}>
+            wants to level up your multiple business with more chatbots
           </Typography>
         </div>
         <Button variant="contained" color="primary" sx={buttonStyle}>

@@ -20,6 +20,13 @@ import Dashboard from '../containers/mainFlow/Dashboard'
 import ChatBotTabs from "../containers/mainFlow/ChatBotTabs";
 import ChatBotTextTabs from "../containers/mainFlow/ChatbotTabsText"
 import ChatSocialAccount from "../containers/mainFlow/ChatSocialAccount";
+import ChatBotDocument from "../containers/mainFlow/ChatBotDocument";
+import Url from '../components/Url';
+import MyChatbot from '../components/MyChatBot/MyChatBot'
+import Details from '../components/MyChatBot/ChatBotDetail'
+import DetailChatbotBox from "../components/MyChatBot/DetailChatbotBox";
+import CustomizeChatbot from "../containers/mainFlow/CustomizeChatbot"
+import ChatBotResponse from '../containers/mainFlow/ChatBotResponse'
 import React from "react";
 
 const Routers = () => {
@@ -28,7 +35,7 @@ const Routers = () => {
       {
         <>
 
-          <Route path="/" element={<UnProtectedRoutes Component={SignUp} />} />
+          <Route path="/" element={<UnProtectedRoutes Component={SignIn} />} />
           <Route
             path="/signup"
             element={<UnProtectedRoutes Component={SignUp} />}
@@ -70,6 +77,30 @@ const Routers = () => {
           <Route
             path="/ChatBotTabs"
             element={<UnProtectedRoutes Component={ChatBotTabs} />}
+          />
+            <Route
+            path="/ChatBotTextTabs"
+            element={<UnProtectedRoutes Component={ChatBotTextTabs} />}
+          />
+            <Route
+            path="/ChatSocialAccount"
+            element={<UnProtectedRoutes Component={ChatSocialAccount} />}
+          />
+            <Route
+            path="/ChatBotDocument"
+            element={<UnProtectedRoutes Component={ChatBotDocument} />}
+          />
+           <Route
+            path="/Url"
+            element={<UnProtectedRoutes Component={Url} />}
+          />
+           <Route
+            path="/MyChatBot"
+            element={<UnProtectedRoutes Component={MyChatbot} />}
+          />
+           <Route
+            path="/Details"
+            element={<UnProtectedRoutes Component={Details} />}
           />
         </>
       }

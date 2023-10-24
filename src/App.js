@@ -10,6 +10,7 @@ import SentEmail from "./components/Sentemail";
 import SetPassword from "./components/Setpassword";
 import RecoverPassword from "./components/RecoverPassword";
 import PasswordRecovery from "./components/PasswordRecovery";
+import CustomChatBot from "./components/customChatbot";
 function App() {
   return (
     

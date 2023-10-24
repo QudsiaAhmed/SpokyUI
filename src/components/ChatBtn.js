@@ -5,25 +5,34 @@ const ChatBtn = () => {
   const containerStyles = {
     display: 'flex',
     gap: '10px', 
-    marginLeft: '67%',
+    marginLeft: '80%',
     marginTop: '1rem',
   };
 
   const button1Styles = {
     backgroundColor: '#62D2E9',
-    color: 'white',
-    borderRadius: '20px',
-    width: '150px',
+    color: '#FFFFFF',
+    borderRadius: '26px',
+    width: '103px',
+    height:'52px',
     padding: '13px',
+    boxShadow:'none',
+    textTransform:"none",
+    fontSize:'15px',
+
   };
 
   const button2Styles = {
     backgroundColor: '#62D2E9',
-    color: 'white',
+    color: '#FFFFFF',
     border: '2px solid #62D2E9',
-    borderRadius: '20px',
+    borderRadius: '26px',
     padding: '10px',
-    width: '30%', 
+    width: '211px', 
+    height:"52px",
+    boxShadow:'none',
+    textTransform:"none",
+    fontSize:'15px',
   };
 
   return (

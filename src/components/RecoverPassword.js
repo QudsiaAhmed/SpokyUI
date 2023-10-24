@@ -5,6 +5,7 @@ import './SetPassword.css';
 import LeftSide from './LeftSide';
 import './RecoverPassword.css'
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const RecoverPassword = () => {
   const [formData, setFormData] = useState({
@@ -18,20 +19,38 @@ const RecoverPassword = () => {
       [name]: value,
     });
   };
-
   const handleSend = () => {
-    // Check if the email exists in local storage
-    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-    const emailExists = storedUsers.some((user) => user.email === formData.email);
-
-    if (emailExists) {
-      // Email exists, manually update the URL and navigate to the update password page
-      window.location.href = `/updatepassword?email=${formData.email}`;
+    if (!formData.email) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Please enter your email before sending a recovery request.',
+        customClass: {
+          confirmButton: 'custom-ok-button-class',
+        },
+      });
+      setFormData({ email: '' }); // Clear the input field
     } else {
-      // Email doesn't exist, show an alert
-      alert('Invalid email. Please enter a valid email.');
+      // Check if the email exists in local storage
+      const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+      const emailExists = storedUsers.some((user) => user.email === formData.email);
+  
+      if (emailExists) {
+        // Email exists, manually update the URL and navigate to the update password page
+        window.location.href = `/updatepassword?email=${formData.email}`;
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Invalid email. Please enter a valid email.',
+          customClass: {
+            confirmButton: 'custom-ok-button-class',
+          },
+        });
+        setFormData({ email: '' }); // Clear the input field
+      }
     }
   };
+  
+  
 
   return (
     <>
@@ -39,15 +58,16 @@ const RecoverPassword = () => {
         <LeftSide />
         <Container maxWidth="sm" className="pwd-container">
           <Box className="pwd-box">
-            <Typography variant="h4" className="setpassword" component="h1" style={{ fontFamily: 'Outfit', fontWeight: 'bold', fontSize: '2.5rem' }}>
+            <Typography variant="h4" className="setpassword" component="h1" style={{ fontFamily: 'Outfit', fontWeight: 'bold', fontSize: '46px',color:'#4F4F4F' }}>
               Recover Your Password
             </Typography>
-            <div style={{ paddingLeft: "2rem" }}>
+            <div style={{ paddingLeft: "2rem",marginTop:'4.5rem' }}>
               <div className="input-group">
-                <Typography variant="body2" className="label-text">
+                <Typography variant="body2" className="label-text" sx={{color:'#000000',fontSize:'17px',fontWeight:'600',fontFamily:'Outfit'}}>
                   Email
                 </Typography>
                 <TextField
+                sx={{marginTop:'5px'}}
                   margin="normal"
                   name="email"
                   value={formData.email}
@@ -65,7 +85,7 @@ const RecoverPassword = () => {
               </div>
 
             </div>
-            <Button variant="contained" color="primary" className='btn-signup' onClick={handleSend}>
+            <Button sx={{textTransform:'none',color:'#FFFFFF',fontSize:'20px',fontWeight:'500'}} variant="contained" color="primary" className='btn-rcoverupddate' onClick={handleSend} >
               Send
             </Button>
           </Box>

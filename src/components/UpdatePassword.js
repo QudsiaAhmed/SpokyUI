@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Container, Box, TextField, Button, Typography, InputAdornment } from '@mui/material';
+import { Container, Box, TextField, Button, Typography, InputAdornment, IconButton } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import LeftSide from './LeftSide';
 import './SetPassword.css';
 import { Link } from 'react-router-dom';
@@ -13,6 +15,9 @@ const UpdatePassword = () => {
   });
 
   const [passwordError, setPasswordError] = useState('');
+
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showRepeatPassword, setShowRepeatPassword] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -70,13 +75,13 @@ const UpdatePassword = () => {
       <LeftSide />
       <Container maxWidth="sm" className="pwd-container">
         <Box className="pwd-box">
-          <Typography variant="h4" className="updatepassword" component="h1" style={{ fontFamily: 'Outfit', fontWeight: 'bold', fontSize: '2.5rem', marginBottom: '2rem' }}>
+          <Typography variant="h4" className="updatepassword" component="h1" style={{ fontFamily: 'Outfit', fontWeight: 'bold', fontSize: '42px', marginBottom: '2rem' }}>
             Update New Password
           </Typography>
           <div style={{ paddingLeft: "2rem" }}>
             <div className="input-group">
-              <Typography variant="body2" className="label-text">
-                Enter New Password
+              <Typography variant="body2" className="label-text" sx={{ color: '#000000', fontSize: '15px', fontWeight: '700' }}>
+                New Password
               </Typography>
               <TextField
                 name="newPassword"
@@ -90,13 +95,23 @@ const UpdatePassword = () => {
                       <LockIcon />
                     </InputAdornment>
                   ),
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={() => setShowNewPassword(!showNewPassword)}
+                      >
+                        {showNewPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
                 }}
                 className="responsive-input"
-                type="password"
+                type={showNewPassword ? 'text' : 'password'}
+                sx={{ marginBottom: '1.7rem' }}
               />
             </div>
             <div className="input-group">
-              <Typography variant="body2" className="repeat-password" >
+              <Typography variant="body2" className="repeat-password" sx={{ color: '#000000', fontSize: '15px', fontWeight: '700' }}>
                 Repeat Password
               </Typography>
               <TextField
@@ -105,7 +120,6 @@ const UpdatePassword = () => {
                 onChange={handleInputChange}
                 variant="outlined"
                 margin="normal"
-                type="password"
                 placeholder="Enter Your New Password Again For Confirmation"
                 InputProps={{
                   startAdornment: (
@@ -113,15 +127,25 @@ const UpdatePassword = () => {
                       <LockIcon />
                     </InputAdornment>
                   ),
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={() => setShowRepeatPassword(!showRepeatPassword)}
+                      >
+                        {showRepeatPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
                 }}
                 className="responsive-input"
+                type={showRepeatPassword ? 'text' : 'password'}
               />
             </div>
             <Typography variant="caption" color="error">
               {passwordError}
             </Typography>
           </div>
-          <Button variant="contained" color="primary" className='btn-signup' onClick={handleUpdate}>
+          <Button sx={{textTransform:"none",color:'#FFFFFF',fontSize:'20px',fontWeight:'500'}} variant="contained" color="primary" className='btn-updatepaswword' onClick={handleUpdate}>
             Update
           </Button>
         </Box>

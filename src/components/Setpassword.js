@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import { Container, Box, TextField, Button, Typography, InputAdornment } from '@mui/material';
+import { Container, Box, TextField, Button, Typography, InputAdornment, IconButton } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import LeftSide from './LeftSide';
 import { useLocation } from 'react-router-dom';
-
+import Swal from 'sweetalert2';
+import './SetPassword.css';
 const SetPassword = () => {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -17,20 +21,21 @@ const SetPassword = () => {
     setPasswordError(''); // Reset password error on input change
   };
 
+  const handlePasswordVisibilityToggle = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
+
   const handleUpdatePassword = () => {
-    // Password length validation: Check if the password is at least 8 characters long
     if (password.length < 8) {
-      setPasswordError('Password must be at least 8 characters long.');
+      setPasswordError('Password must be at least 8 characters long');
+      setPassword(''); // Clear the password field
       return;
     }
 
-    // Retrieve the existing user data from local storage
     const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
 
-    // Find the user with the matching email
     const updatedUsers = existingUsers.map((user) => {
       if (user.email === email) {
-        // Update only the password for the matching user
         return {
           ...user,
           password: password,
@@ -39,10 +44,19 @@ const SetPassword = () => {
       return user;
     });
 
-    // Save the updated user data back to local storage
     localStorage.setItem('users', JSON.stringify(updatedUsers));
+    console.log('Updated password for email:', email); // Debug log
 
-    window.location.href = '/signin';
+    Swal.fire({
+      icon: 'success',
+      title: 'Password successfully set!',
+      customClass: {
+        confirmButton: 'custom-ok-button-class',
+      },
+    }).then(() => {
+      // After the alert is closed, navigate to the desired page
+      window.location.href = '/signin'; // Change '/signin' to your desired page
+    });
   };
 
   return (
@@ -69,15 +83,22 @@ const SetPassword = () => {
                       <LockIcon />
                     </InputAdornment>
                   ),
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton onClick={handlePasswordVisibilityToggle}>
+                        {isPasswordVisible ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
                 }}
                 className="responsive-input"
-                type="password" // Specify the input type as "password"
+                type={isPasswordVisible ? 'text' : 'password'}
                 error={passwordError !== ''}
                 helperText={passwordError}
               />
             </div>
           </div>
-          <Button variant="contained" color="primary" className='btn-signup' onClick={handleUpdatePassword}>
+          <Button sx={{textTransform:'none',color:'#FFFFFF',fontWeight:'500',fontSize:'20px'}} variant="contained" color="primary" className='btn-signupupdate' onClick={handleUpdatePassword}>
             Update
           </Button>
         </Box>

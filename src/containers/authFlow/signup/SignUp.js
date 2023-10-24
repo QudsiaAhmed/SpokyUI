@@ -5,21 +5,13 @@ import GoogleImg from '../../../Images/google.png';
 import EmailIcon from '@mui/icons-material/Email';
 import LeftSide from '../../../components/LeftSide';
 import { Link } from 'react-router-dom';
-
+import Swal from 'sweetalert2';
 const SignUp = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
   });
-
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    // Load existing users from local storage
-    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-    setUsers(storedUsers);
-  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,19 +20,33 @@ const SignUp = () => {
       [name]: value,
     });
   };
+
   const handleSignUp = () => {
-    // Load existing users from local storage
+    if (!formData.firstName || !formData.lastName || !formData.email) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Please fill in all the required fields.',
+        customClass: {
+          confirmButton: 'custom-ok-button-class',
+        },
+      });
+      return; // Prevent further execution of the function
+    }
+  
     const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-    
-    // Check if the email already exists among existing users
     const userExists = storedUsers.some((user) => user.email === formData.email);
-    
-    // Check if firstName and lastName contain numeric characters
     const firstNameContainsNumbers = /\d/.test(formData.firstName);
     const lastNameContainsNumbers = /\d/.test(formData.lastName);
-    
+  
     if (userExists) {
-      alert('Email already exists. Please sign in or use a different email.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Email already exists. Please sign in or use a different email.',
+        customClass: {
+          confirmButton: 'custom-ok-button-class',
+        },
+      });
+  
       // Clear the input fields
       setFormData({
         firstName: '',
@@ -48,7 +54,14 @@ const SignUp = () => {
         email: '',
       });
     } else if (firstNameContainsNumbers || lastNameContainsNumbers) {
-      alert('First Name and Last Name cannot contain numeric characters.');
+      Swal.fire({
+        icon: 'error',
+        title: 'First Name and Last Name cannot contain numeric characters.',
+        customClass: {
+          confirmButton: 'custom-ok-button-class',
+        },
+      });
+  
       // Clear the input fields
       setFormData({
         firstName: '',
@@ -56,25 +69,21 @@ const SignUp = () => {
         email: '',
       });
     } else {
-      // Add the new user to the list
       const newUser = {
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
+        password: '', // Initialize the password field
       };
-      
       const updatedUsers = [...storedUsers, newUser];
-      
-      // Update the local storage with the updated list of users
       localStorage.setItem('users', JSON.stringify(updatedUsers));
-      
-      // Redirect to set password page with email as a query parameter
-      window.location.href = `/setpassword?email=${formData.email}`;
+      console.log('Updated users in local storage:', updatedUsers); // Debug log
+      window.location.href = '/setpassword?email=' + formData.email;
     }
   };
   
-  
-  
+
+
 
   return (
     <div className='ScreenContainer'>
@@ -82,17 +91,11 @@ const SignUp = () => {
       <Container maxWidth="sm" className="signup-container">
         <Box className="signup-box">
           <Typography
-            variant="h4"
-            component="h1"
-            style={{
-              fontFamily: 'Outfit',
-              fontWeight: 'bold',
-              fontSize: '2.5rem',
-            }}
+            style={{ fontFamily: 'Outfit', fontWeight: '600', fontSize: '3rem', color: '#000000' }}
           >
             Sign Up
           </Typography>
-          <Typography variant="body1" component="p">
+          <Typography variant="body1" component="p" style={{ color: '#626262', fontFamily: 'Outfit', fontSize: '20px', marginTop: '0', marginBottom: '2rem' }}>
             Sign Up to your account
           </Typography>
           <div className='inputdatasignin' style={{ paddingLeft: '4rem' }}>
@@ -108,8 +111,9 @@ const SignUp = () => {
                 style={{
                   color: '#333',
                   paddingLeft: '0',
-                  fontSize: '1rem',
+                  fontSize: '15px',
                   fontWeight: 'bold',
+                  marginLeft:'.1rem',
                 }}
               >
                 First Name
@@ -137,8 +141,10 @@ const SignUp = () => {
                 style={{
                   color: '#333',
                   paddingLeft: '0',
-                  fontSize: '1rem',
+                  fontSize: '15px',
                   fontWeight: 'bold',
+                  marginLeft:'.1rem',
+
                 }}
               >
                 Last Name
@@ -166,8 +172,9 @@ const SignUp = () => {
                 style={{
                   color: '#333',
                   paddingLeft: '0',
-                  fontSize: '1rem',
+                  fontSize: '15px',
                   fontWeight: 'bold',
+                  marginLeft:'.2rem'
                 }}
               >
                 Email
@@ -189,31 +196,33 @@ const SignUp = () => {
               />
             </div>
           </div>
-          <Button variant="contained" color="primary" className='btn-signup' onClick={handleSignUp}>
+          <Link to='/setpassword'></Link>
+          <Button sx={{textTransform:"none",color:'#FFFFFF',fontWeight:'500',fontSize:'18px'}} variant="contained" color="primary" className='btn-signupbutton' onClick={handleSignUp}>
             Create Account
           </Button>
           <div className="dont-have-account">
             <Typography component="p">
               Have an account?
-              <Link to='/signin' className='signuplink'>
-                SignIn?
+              <Link to='/signin' className='signuplink' >
+                SignIn
               </Link>
             </Typography>
           </div>
-          <p
-            className='or'
-            style={{ marginLeft: '10rem', marginTop: '1.2rem' }}
-          >
-            OR
-          </p>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '1.2rem' }}>
+  <hr style={{ flex: 0.4, borderTop: '1px solid #E0E0E0' }} />
+  <p className='or' style={{ margin: '0', padding: '0 1rem', fontWeight: '500', color: '#000000' }}>OR</p>
+  <hr style={{ flex: 0.4, borderTop: '1px solid #E0E0E0' }} />
+</div>
+
           <div
             className='gogleimg'
             style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              marginRight: '4rem',
-              marginTop: '1rem',
+              marginRight: '1.5rem',
+              marginTop: '1.4rem',
+              marginBottom:'2rem',
             }}
           >
             <img src={GoogleImg} alt="Google" style={{ marginRight: '0' }} />

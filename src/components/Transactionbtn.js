@@ -21,17 +21,20 @@ const Transactionbtn = () => {
         sx={{
           marginTop: '1.5rem',
           marginBottom: '1rem',
-          marginLeft: isSmallScreen ? '1rem' : '71rem', // Adjust the left margin for small screens
+          marginLeft: isSmallScreen ? '1rem' : '64rem', // Adjust the left margin for small screens
           backgroundColor: 'transparent',
           color: '#FF8C7D',
           border: '1px solid #FF8C7D', // Add border
-          borderRadius:'15px',
+          borderRadius:'33px',
           fontFamily:'Outfit',
           fontWeight:'500',
-          fontSize:"1rem",
+          fontSize:"13.15px",
+          width:'20%',
+          height:"35px",
+          padding:"20px",
           '&:hover': {
             backgroundColor: 'transparent',
-            fontSize: '1rem',
+            fontSize: '13.15px',
             fontWeight: '500',
           },
         }}

@@ -1,16 +1,16 @@
 body, html {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scrollbar */
+  overflow-x: hidden;
 }
 
 .signup-container {
   /* margin-top: 2rem; */
-  width: 90%;
+  width: 60%;
 }
 
 .signup-box {
-  width: 90%;
+  width: 92%;
   height: auto;
   border-radius: 35px;
   border: 1px solid #FF5841;
@@ -39,31 +39,31 @@ body, html {
 .inputdatasignin {
   padding-left: 4rem;
 }
-/* 
-.inputdatasignin .MuiTextField-root {
-  width: 80%;
-} */
-
-.btn-signup {
+.btn-signupbutton {
   width: 70% !important;
-  left: 1rem;
+  left: 4.4rem !important;
   height: 50px;
   padding: 19px, 0px, 20px, 0px;
   gap: 8px;
   background: linear-gradient(0deg, #62D2E9, #62D2E9);
-  top: 2rem;
+  top: 1rem;
   border-radius: 50px !important;
 }
 
 .dont-have-account {
-  margin-top: 1rem;
+  margin-top: 3rem;
   font-size: 20px;
-  margin-left: 13%;
+  margin-left: 22%;
+  color: #000000;
+  font-family: 'Outfit';
+  font-weight: 500;
 }
 
 .signuplink {
   color: #62D2E9;
   font-size: 20px;
+  text-decoration: none;
+  text-transform: none;
 }
 
 .signup-box .MuiButton-root {
@@ -87,9 +87,14 @@ body, html {
   width: 100vw;
 }
 
+@media (max-width: 1000px) {
+  .signup-box{
+    margin-bottom: 1rem;
+      }
+}
 @media (max-width: 500px) {
   .dont-have-account {
-    margin-left: 0;
+    margin-left: 3.3rem;
   }
 
   .or {
@@ -101,5 +106,14 @@ body, html {
   .gogleimg {
     margin-right: 0;
     margin-top: 1rem;
+  }
+}
+@media (max-width: 400px) {
+  /* .btn-signupbutton{
+    width: 10rem !important;
+    left: 1rem;
+  } */
+  .dont-have-account {
+    
   }
 }

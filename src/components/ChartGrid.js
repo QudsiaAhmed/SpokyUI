@@ -6,13 +6,16 @@ const ChartGrid = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const isMediumScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery('(max-width:600px)');
+
 
   const containerStyle = {
-    margin: '0 auto', // Center horizontally
-    marginTop: '2rem', // Margin-top for all screen sizes
-    marginLeft: isSmallScreen ? '2rem' : '24rem', // Add left padding for small screens
-    padding: isSmallScreen ? 0 : '.48rem 15px', // Add right padding for small screens
-    maxWidth: isSmallScreen ? '90%' : '67%',
+    margin: '0 auto', 
+    marginTop: '2rem',
+    marginLeft: isSmallScreen ? '2rem' : '0', // Add left padding for small screens
+    padding: isSmallScreen ? 0 : '.48rem 0', // Add right padding for small screens
+    // maxWidth: isSmallScreen ? '90%' : '100%',
+    maxWidth:"100%",
   };
 
   const leftGridStyle = {
@@ -23,7 +26,7 @@ const ChartGrid = () => {
   };
 
   const rightGridStyle = {
-    padding: '37px',
+    padding: '23px',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -36,11 +39,12 @@ const ChartGrid = () => {
 
   const listItemStyle = {
     textAlign: 'left',
-    padding: '1rem 15px',
-    marginBottom: '3.3rem',
+    padding: '.7rem 15px',
+    marginBottom: '2rem',
+    marginTop:'1rem',
     display: 'flex',
     alignItems: 'center',
-    border: '1px solid #FF8C7D', // Add border for all items on the left side
+    border: '1px solid #FF8C7D', 
   };
 
   const listItemRightStyle = {
@@ -49,12 +53,12 @@ const ChartGrid = () => {
     marginBottom: '0.5rem',
     display: 'flex',
     alignItems: 'center',
-    cursor: 'pointer', // Add cursor pointer for interactivity
+    cursor: 'pointer', 
   };
 
   const bulletPointStyle = {
-    width: '8px',
-    height: '8px',
+    width: '5px',
+    height: '5px',
     backgroundColor: 'black',
     borderRadius: '50%',
     marginRight: '8px',
@@ -86,6 +90,8 @@ const ChartGrid = () => {
                   style={{
                     ...listItemStyle,
                     border: selectedItem === index ? '1px solid #FF8C7D' : '1px solid #FF8C7D',
+                    color:'#454C50',
+                    fontSize:'18px',
                   }}
                 >
                   <div style={bulletPointStyle}></div>
@@ -106,12 +112,13 @@ const ChartGrid = () => {
                     ...listItemRightStyle,
                     border: selectedItem === index ? '1px solid #FF8C7D' : 'none', // Show border on click
                   }}
-                  onClick={() => handleItemClick(index)} // Add click handler
+                  onClick={() => handleItemClick(index)}
                 >
                   <div style={bulletPointStyle}></div>
                   <Typography>{item}</Typography>
                   <ApexChart series={[70]} chartHeight={calculateChartHeight()} key={index} />
-                  <div style={{ marginLeft: '1rem' }}>
+                  <div style={{ marginLeft: '1rem' ,color:'#454C50',
+                    fontSize:'18px'}}>
                     {index === 0 && '+3'}
                     {index === 1 && '-4'}
                     {index === 2 && '-0'}
@@ -144,7 +151,7 @@ const ApexChart = ({ series, chartHeight }) => {
         },
       },
     },
-    labels: ['Cricket'],
+    labels: ['20'],
   };
 
   return (
@@ -157,10 +164,11 @@ const ApexChart = ({ series, chartHeight }) => {
 const BarChart = () => {
   const options = {
     series: [{
-      data: [200, 200, 300, 200],
+      data: [0,200 ,200, 300, 200],
     }],
     chart: {
       type: 'bar',
+      
       height: 450, 
     },
     plotOptions: {
@@ -168,12 +176,16 @@ const BarChart = () => {
         borderRadius: 4,
         horizontal: true,
         colors: {
-          backgroundBarColors: ['#FF5733', '#FF8C7D', '#FFC300', '#FF5733'],
+          backgroundBarColors: ['#FF5733','#FF5733', '#FF8C7D', '#FFC300', '#FF5733'],
+          backgroundColor:'red',
         },
       },
     },
     dataLabels: {
       enabled: false,
+    },
+    fill: {
+      colors: ['#FF5733', '#FF5733', '#FF8C7D', '#FFC300', '#FF5733'], 
     },
     xaxis: {
       categories: ['South Korea', 'United Kingdom', 'Netherlands', 'Italy', 'France'],
