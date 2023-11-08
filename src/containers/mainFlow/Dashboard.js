@@ -9,14 +9,25 @@ import ChartGrid from '../../components/ChartGrid';
 import Transactionbtn from '../../components/Transactionbtn';
 
 const Dashboard = () => {
-  const [collapsed, setCollapsed] = useState(window.innerWidth <= 800);
+  const [collapsed, setCollapsed] = useState(window.innerWidth <= 1200);
+
+  const dashboardStyles = {
+    height: '100%',
+    marginLeft: '18rem',
+    width: 'calc(100% - 18rem)',
+  };
+
+  if (window.innerWidth <= 1200) {
+    dashboardStyles.marginLeft = '0';
+    dashboardStyles.width = '100%';
+  }
 
   return (
     <>
       <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
-      <Navbar />
-      <Box style={{ height: '100%', marginLeft:collapsed?'130px': '18rem', width: collapsed?'calc(100% - 130px)'  :'calc(100% - 18rem)' }}>
-        <Container style={{ padding: 0, maxWidth: '1400px' }} sx={{ marginTop: '6rem' }}>
+      <Navbar collapsed={collapsed} />
+      <Box style={dashboardStyles}>
+        <Container style={{ maxWidth: '1400px', marginTop: '2rem' }}>
           <GridBtn />
           <StandardPlan />
           <ChatbotCreditCompo />

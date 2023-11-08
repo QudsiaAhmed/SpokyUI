@@ -13,7 +13,7 @@ const Url = () => {
         marginRight: '16.4rem',
         borderRadius: '18.03px',
         border: '1.4px solid #CECACA',
-        marginTop: '7rem',
+        marginTop: '2rem',
         position: 'relative',
         padding: 0,
     };
@@ -31,7 +31,7 @@ const Url = () => {
 
     const typographyBoxStyle = {
         marginTop: '12rem',
-        marginRight: '67%',
+        marginRight: '68%',
         fontSize: '1.5rem',
         fontWeight: '600',
         fontFamily: 'Outfit',
@@ -67,7 +67,17 @@ const Url = () => {
         backgroundColor: 'transparent',
         borderRadius: '4rem',
     };
-
+    const TabStyles = {
+        height: '100%',
+        marginLeft: '18rem',
+        width: 'calc(100% - 18rem)',
+      };
+    
+      if (window.innerWidth <= 1200) {
+        TabStyles.marginLeft = '0';
+        TabStyles.width = '100%';
+      }
+    
     const [isFetchClicked, setIsFetchClicked] = useState(false);
     const [isDetailsClicked, setIsDetailsClicked] = useState(false);
     const [checked, setChecked] = useState(false);
@@ -98,16 +108,17 @@ const Url = () => {
     const handleChange = (event) => {
         setChecked(event.target.checked);
     };
+    const [collapsed, setCollapsed] = useState(window.innerWidth <= 800);
 
     return (
         <>
-            <Box style={{ height: '100%', margin: 'auto', marginLeft: '25rem', width: '71.5%', maxWidth: "none", }}>
-                <Container style={{ padding: 0, maxWidth: '1400px' }} sx={{ marginTop: '6rem' }}>
+            <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
+            <ChatBotNavbar collapsed={collapsed} />
+
+            <Box style={TabStyles}>
+            <Container style={{ maxWidth: '1400px', marginTop: '2rem' }}>
 
                     <Container style={{ padding: 0, maxWidth: 'none' }} sx={containerStyle}>
-                        <Sidebar />
-                        <ChatBotNavbar />
-
                         <Tabs />
                         <div style={innerBoxStyle}>
                             <Typography variant="h6" sx={{ color: '#FFFFFF', marginLeft: '3rem', fontSize: '19px', fontWeight: "500" }}>

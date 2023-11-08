@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Paper, TextField, InputAdornment, IconButton, Box } from '@mui/material';
-import Img from '../Images/image 1 .png'; // Update the image path
+import Img from '../Images/image 1 .png'; 
 import SendIcon from '@mui/icons-material/Send';
+import { useAtom } from 'jotai';
+import { userChanges } from '../utils/jotai';
+
+
 
 const CustomChatBot = () => {
+    const [change, setChange] = useAtom(userChanges);
+
+console.log(userChanges,'userChanges')
     const [messages, setMessages] = useState([]);
     const [inputMessage, setInputMessage] = useState('');
-    const [fontSize, setFontSize] = useState('14.15px'); // Default font size
+    const [fontSize, setFontSize] = useState(''); 
 
     const chatContainerStyle = {
         padding: '20px',
@@ -14,6 +21,7 @@ const CustomChatBot = () => {
         overflowY: 'scroll',
         scrollbarWidth: 'thin',
         WebkitScrollbarWidth: 'thin',
+        backgroundColor:change?.backgroundcolor
     };
 
     const messageStyle = {
@@ -23,34 +31,37 @@ const CustomChatBot = () => {
         display: 'flex',
         border: '1px solid #FF8C7D',
         fontWeight: '400',
-        fontSize: fontSize,
-    };
+        fontSize: change.fontSize + 'px', 
+        };
 
     const userMessageStyle = {
         ...messageStyle,
         textAlign: 'right',
-        backgroundColor: '#E7E7E7',
-        color: 'black',
+        backgroundColor: change?.chatbubblecolor,
+        color: change?.fontcolor,
         width: '70%',
         marginLeft: 'auto',
         marginBottom: '1.5rem',
         height: '2rem',
         border: '1px solid #62D2E9',
+        fontSize: change.fontSize + 'px', 
     };
 
     const botMessageContainerStyle = {
         display: 'flex',
         alignItems: 'center',
         marginBottom: '1.5rem',
+
     };
 
     const botMessageStyle = {
         ...messageStyle,
-        backgroundColor: '#E7E7E7',
-        color: 'black',
+        backgroundColor: change?.chatbubblecolor,
+        color: change?.fontcolor,
         width: '70%',
         marginBottom: '1.5rem',
         height: '2rem',
+        fontSize: change.fontSize + 'px', 
     };
 
     const botIconStyle = {
@@ -61,29 +72,29 @@ const CustomChatBot = () => {
         width: '100%',
         height: '80px',
         borderRadius: '38px 38px 0 0',
-        backgroundColor: '#FF8C7D',
+        background: `linear-gradient(to bottom, ${change?.headergradient}, ${change?.headertwogradieent})`,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
     };
-
-    const spokyTextStyle = {
-        margin: '0.2rem',
-        color: 'white',
-        fontSize: '1.5rem',
-        fontFamily: 'Outfit',
-        fontWeight: 'bold',
-    };
-
     const containerDivStyle = {
         width: '100%',
         height: '52px',
         borderRadius: '38px 38px 0 0',
-        backgroundColor: '#FF8C7D',
+        background: `linear-gradient(to bottom, ${change?.headergradient}, ${change?.headertwogradieent})`,
         transform: 'rotate(-180deg)',
         display: 'flex',
     };
+    const spokyTextStyle = {
+        margin: '0.2rem',
+        color: 'white',
+        fontSize: '1.5rem',
+       
+        fontFamily: 'Outfit',
+        fontWeight: 'bold',
+    };
 
+    
     const handleInputChange = (e) => {
         setInputMessage(e.target.value);
         const userInput = e.target.value;
@@ -125,7 +136,7 @@ const CustomChatBot = () => {
         <Container sx={{ marginTop: '7rem' }} maxWidth="xs">
             <div style={boxStyle}>
                 <img src={Img} style={{ height: '40px', width: '40px' }} />
-                <div style={spokyTextStyle}>Spoky</div>
+                <div style={spokyTextStyle} >Spoky</div>
             </div>
             <Paper sx={{ paddingBottom: 5 }} >
                 <div style={chatContainerStyle} className="chat-container">
@@ -179,7 +190,7 @@ const CustomChatBot = () => {
                         InputProps={{
                             endAdornment: (
                                 <InputAdornment position="end">
-                                    <IconButton onClick={handleSendMessage} sx={{ color: '#62D2E9' }}>
+                                    <IconButton onClick={handleSendMessage} sx={{ color: change?.sendmessagebtn,backgroundColor:'#62D2E9' }}>
                                         <SendIcon />
                                     </IconButton>
                                 </InputAdornment>

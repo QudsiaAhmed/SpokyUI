@@ -34,55 +34,46 @@ const Boxes = () => {
   };
 
   return (
-    <div style={{ margin: '15% 6rem 0', position: 'relative' }}>
+    <div style={{ margin: '15% 1rem 0', position: 'relative' }}>
       <Grid container spacing={6} style={{ height: '100%' }}>
-        <Grid item xs={12} md={6} style={{ height: '100%' }}>
+        <Grid item xs={12} md={6} lg={6} xl={6} style={{ height: '100%' }}>
           <Typography variant="h6" sx={{
             fontSize: '16px',
             fontWeight: '500',
             fontWeight: 'bold',
             color: '#252F3F',
             textAlign: "left",
-            marginLeft: "2rem",
-            '@media (max-width: 600px)': {
-              marginRight: '0',
-            },
+            marginLeft: '1rem',
           }}>Name:</Typography>
-          <TextField label="Enter a name" variant="outlined" style={{ margin: '1rem', width: '90%' }} />
+          <TextField label="Enter a name" variant="outlined" style={{ margin: '1rem', marginLeft: '1rem', marginRight: '1rem', width: 'calc(100% - 2rem)' }} />
 
           <Typography variant="h6" sx={{
             textAlign: "left",
-            marginLeft: "2rem",
+            marginLeft: '1rem',
             fontSize: '16px',
             fontWeight: '500',
             fontWeight: 'bold',
             color: '#252F3F',
-            '@media (max-width: 600px)': {
-              marginRight: '0',
-            },
           }}>Initial Message:</Typography>
-          <TextField label="Enter an initial message for the chatbot" variant="outlined" style={{ margin: '1rem', width: '90%' }} />
+          <TextField label="Enter an initial message for the chatbot" variant="outlined" style={{ margin: '1rem', marginLeft: '1rem', marginRight: '1rem', width: 'calc(100% - 2rem)' }} />
 
           <Typography variant="h6" sx={{
             textAlign: "left",
-            marginLeft: "2rem",
+            marginLeft: '1rem',
             fontSize: '16px',
             fontWeight: '500',
             fontWeight: 'bold',
             color: '#252F3F',
-            '@media (max-width: 600px)': {
-              marginRight: '0',
-            },
           }}>Base System Message:</Typography>
           <TextField
             label="Enter the base system message for the chatbot"
             variant="outlined"
-            style={{ margin: '1rem', width: '90%', flexGrow: 1 }}
+            style={{ margin: '1rem', marginLeft: '1rem', marginRight: '1rem', width: 'calc(100% - 2rem)' }}
             multiline={true}
             rows={8}
           />
         </Grid>
-        <Grid item xs={12} md={6} style={{ height: '100%' }}>
+        <Grid item xs={12} md={6} lg={6} xl={6} style={{ height: '100%' }}>
           <div style={{ display: 'flex', flexDirection: 'column', marginTop: '1rem' }}>
             <Typography variant="h6" sx={{
               textAlign: "left",
@@ -90,11 +81,9 @@ const Boxes = () => {
               fontWeight: '500',
               fontWeight: 'bold',
               color: '#252F3F',
-              '@media (max-width: 600px)': {
-                marginRight: '0',
-              },
+              marginLeft: '1rem',
             }}>ChatGPT Model Version</Typography>
-            <Select variant="outlined" style={{ width: '97%', marginBottom: '2rem' }}>
+            <Select variant="outlined" style={{ marginLeft: '1rem', marginRight: '1rem', width: 'calc(100% - 2rem)', marginBottom: '2rem' }}>
               <MenuItem value="Option 1">Option 1</MenuItem>
               <MenuItem value="Option 2">Option 2</MenuItem>
             </Select>
@@ -105,11 +94,9 @@ const Boxes = () => {
               fontWeight: '500',
               fontWeight: 'bold',
               color: '#252F3F',
-              '@media (max-width: 600px)': {
-                marginRight: '0',
-              },
+              marginLeft: '1rem',
             }}>Visibility</Typography>
-            <Select variant="outlined" style={{ width: '97%' }}>
+            <Select variant="outlined" style={{ marginLeft: '1rem', marginRight: '1rem', width: 'calc(100% - 2rem)' }}>
               <MenuItem value="Option 3">Option 3</MenuItem>
               <MenuItem value="Option 4">Option 4</MenuItem>
             </Select>

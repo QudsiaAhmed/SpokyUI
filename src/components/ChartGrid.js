@@ -12,9 +12,8 @@ const ChartGrid = () => {
   const containerStyle = {
     margin: '0 auto', 
     marginTop: '2rem',
-    marginLeft: isSmallScreen ? '2rem' : '0', // Add left padding for small screens
+    marginLeft: isSmallScreen ? '.2rem' : '0', // Add left padding for small screens
     padding: isSmallScreen ? 0 : '.48rem 0', // Add right padding for small screens
-    // maxWidth: isSmallScreen ? '90%' : '100%',
     maxWidth:"100%",
   };
 

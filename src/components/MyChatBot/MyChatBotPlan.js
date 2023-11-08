@@ -15,21 +15,14 @@ const StandardPlan = () => {
         borderRadius: '20px',
         boxShawdow: 'none',
         marginTop: '6rem',
-        [theme.breakpoints.up('sm')]: {
-            width: '80%',
-            marginLeft: '10%',
-        },
-        [theme.breakpoints.up('md')]: {
-            width: '75%',
-            marginLeft: '10%',
-        },
+        
         buttonStyle: {
             width: '30%',
 
         },
         [theme.breakpoints.up('lg')]: {
-            width: '65.4%',
-            marginLeft: '24.5rem',
+            // width: '65.4%',
+            // marginLeft: '24.5rem',
         },
       
     };
@@ -50,7 +43,7 @@ const StandardPlan = () => {
         <ThemeProvider theme={theme}>
             <Box sx={boxStyle}>
                 <div>
-                    <Typography variant="h4" fontWeight="bold" align="left" sx={{fontSize:'25px',marginLeft:"3rem"}}>
+                    <Typography variant="h4" fontWeight="bold" align="left" sx={{fontSize:'25px',marginLeft:"2rem"}}>
                         Wants to level up your multiple business with more <br /> chatbots
                     </Typography>
                 </div>

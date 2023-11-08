@@ -7,10 +7,11 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import AvatarImage from "../../Images/image 10.png"
+import BotImage from '../../Images/image 1 .png'
 const cardData = [
   {
     title: 'Spoky',
-    image: '/static/images/cards/contemplative-reptile.jpg',
+    image: BotImage,
     description: 'Credit Usage',
     message: 'Total Message credits.',
     response: 'Chat Responses.',
@@ -50,15 +51,15 @@ const MyChatBotCard = ({ selectedType }) => {
   return (
     <div>
       {/* Render cards based on the selected type */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', marginLeft: '25rem', marginTop: '2rem', textAlign: 'left' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: '2rem', textAlign: 'left' }}>
         {cardData.map((card, index) => {
           // Check if the card should be displayed based on the selected type
           if (selectedType === 'All' || selectedType === card.type) {
             return (
-              <Card key={index} sx={{ width: 282, margin: '1rem' }}>
+              <Card key={index} sx={{ width: 280, margin: '.5rem' }}>
                 <CardMedia
                   sx={{ height: 140, backgroundColor: '#FF8C7D' }}
-                  image={card.image}
+                  image={card.image }
                   title={card.title}
                 />
                 <CardContent>
@@ -98,8 +99,8 @@ const MyChatBotCard = ({ selectedType }) => {
                     }}>Customize</Button>
                     <Link to="/Details" >
                       <Button size="small" sx={{
-                        padding: '10px', borderRadius: '20px', background: 'transparent', color: '#62D2E9', '&:hover': {
-                          backgroundColor: 'transparent',border:'1px solid #62D2E9'
+                        padding: '10px', borderRadius: '20px', background: 'transparent', color: '#62D2E9', marginLeft: "1rem", '&:hover': {
+                          backgroundColor: 'transparent', border: '1px solid #62D2E9'
                         },
                       }}>See Details</Button>
                     </Link>

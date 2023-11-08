@@ -127,6 +127,7 @@ const AfterUpload = ({ file, onFileUpload }) => {
             // marginRight: '10px',
             borderRadius: '20px',
             marginLeft:'3.5rem',
+            marginTop:'.5rem'
           }}
           onClick={handleFileInputClick}
         >

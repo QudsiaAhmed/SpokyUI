@@ -87,11 +87,11 @@ left: 6%;
   left: 6%;
 }
 }
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .leftside {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    width: 90%;
+    margin-left: 2%;
+    margin-right: 2%;
   }
 
   .chatbotheading h1{
@@ -113,14 +113,16 @@ left: 6%;
   .spokyheading {
     position: absolute;
     top: 10px; 
-    left: 30px; 
+    left: 28%; 
     margin: 0; 
+    margin-top: 2rem;
   }
 
   .chatbot-image {
     max-width: 80%;
   }
 }
+
 @media (max-width: 1181px) {
   .chatbotheading h1 {
     top:16%;
@@ -149,25 +151,39 @@ left: 6%;
   .chatbotheading h1 {
     left:25%;
   }
+    .spokyheading {
+      left:25%;
+
+    }
+
 
 }
 @media (max-width: 685px) {
   .chatbotheading h1 {
     left:20%;
   }
+  .spokyheading {
+    left:20%;
+
+  }
 }
 @media (max-width: 619px) {
   .chatbotheading h1 {
     left:15%;
+  }
+  .spokyheading {
+    left:15%;
+
   }
 }
 @media (max-width: 500px) {
   .chatbotheading h1{
     margin-right: 2rem;
   }
+ 
 }
-/* @media (max-width:2312.50px) {
-  .chatbotheading h1{
-    font-size: 4rem !important; 
+/* @media (max-width:380px) {
+  .chatbotheading{
+    font-size: 1px !important; 
   }
 } */

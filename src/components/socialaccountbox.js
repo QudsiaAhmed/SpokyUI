@@ -31,13 +31,13 @@ const Boxes = () => {
   return (
     <div style={{ margin: '0 4rem', marginTop: '12rem' }}>
       <Grid container spacing={2}>
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <div style={{ marginBottom: '2rem' }}>
-            <Typography variant="h6" sx={{ fontSize: '16px', fontWeight: 'bold', color: '#252F3F', marginRight:'30%' }}>
+            <Typography variant="h6" sx={{ fontSize: '16px', fontWeight: 'bold', color: '#252F3F', marginRight: { sm: '10%', md: '37%' } }}>
               Create Facebook Account
             </Typography>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <img src={facebookIcon} alt="Facebook Icon" style={{ width: '15%', height: '15%' }} />
+              <img src={facebookIcon} alt="Facebook Icon" style={{ width: { sm: '10%', md: '15%' }, height: '15%' }} />
               <TextField
                 label="Enter URL for Facebook account"
                 variant="standard"
@@ -49,11 +49,11 @@ const Boxes = () => {
           </div>
 
           <div style={{ marginBottom: '1rem' }}>
-            <Typography variant="h6" sx={{ fontSize: '16px', fontWeight: 'bold', color: '#252F3F', marginRight:'30%' }}>
+            <Typography variant="h6" sx={{ fontSize: '16px', fontWeight: 'bold', color: '#252F3F', marginRight: { sm: '10%', md: '37%' } }}>
               Create LinkedIn Account
             </Typography>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <img src={linkedInIcon} alt="LinkedIn Icon" style={{ marginLeft: '1rem', marginRight: '1rem', width: '10%', height: '10%' }} />
+              <img src={linkedInIcon} alt="LinkedIn Icon" style={{ marginLeft: '1rem', marginRight: '1rem', width: { sm: '8%', md: '10%' }, height: '10%' }} />
               <TextField
                 label="Enter URL for LinkedIn account"
                 variant="standard"
@@ -64,13 +64,13 @@ const Boxes = () => {
             </div>
           </div>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <div style={{ marginBottom: '1rem' }}>
-            <Typography variant="h6" sx={{ fontSize: '16px', fontWeight: 'bold', color: '#252F3F', marginRight:'54%' }}>
+            <Typography variant="h6" sx={{ fontSize: '16px', fontWeight: 'bold', color: '#252F3F', marginRight: { sm: '20%', md: '58%' } }}>
               X
             </Typography>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <img src={X} alt="X Icon" style={{ marginLeft: '1rem', marginRight: '1rem', width: '15%', height: '15%' }} />
+              <img src={X} alt="X Icon" style={{ marginLeft: '1rem', marginRight: '1rem', width: { sm: '10%', md: '15%' }, height: '15%' }} />
               <TextField
                 label="Enter URL for X account"
                 variant="standard"
@@ -87,5 +87,3 @@ const Boxes = () => {
 };
 
 export default Boxes;
-
-

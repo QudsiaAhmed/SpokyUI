@@ -13,7 +13,7 @@ const Documents = () => {
     marginRight: '16.4rem',
     borderRadius: '18.03px',
     border: '1.4px solid #CECACA',
-    marginTop: '7rem',
+    marginTop: '2rem',
     position: 'relative',
     padding: 0,
   };

@@ -6,8 +6,11 @@ import LeftSide from './LeftSide';
 import './RecoverPassword.css'
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { useMediaQuery } from '@mui/material';
 
 const RecoverPassword = () => {
+  const isSmallScreen = useMediaQuery('(max-width:1024px)'); 
+
   const [formData, setFormData] = useState({
     email: '',
   });
@@ -55,16 +58,17 @@ const RecoverPassword = () => {
   return (
     <>
       <div className='ScreenContainer'>
-        <LeftSide />
+      {isSmallScreen ? null : <LeftSide />} 
         <Container maxWidth="sm" className="pwd-container">
           <Box className="pwd-box">
-            <Typography variant="h4" className="setpassword" component="h1" style={{ fontFamily: 'Outfit', fontWeight: 'bold', fontSize: '46px',color:'#4F4F4F' }}>
+            <Typography variant="h4" className="setpassword" component="h1" style={{ fontFamily: 'Outfit', fontWeight: 'bold', fontSize: '42px',color:'#4F4F4F' }}>
               Recover Your Password
             </Typography>
-            <div style={{ paddingLeft: "2rem",marginTop:'4.5rem' }}>
-              <div className="input-group">
-                <Typography variant="body2" className="label-text" sx={{color:'#000000',fontSize:'17px',fontWeight:'600',fontFamily:'Outfit'}}>
+            <div style={{ paddingLeft: "2.5rem",marginTop:'4.5rem' }}>
+              <div className="input-group" >
+                <Typography variant="body2" className="label-text" sx={{color:'#000000',fontSize:'17px',fontWeight:'600',fontFamily:'Outfit',}}>
                   Email
+                  <span style={{ color: '#F51805' }}>*</span>
                 </Typography>
                 <TextField
                 sx={{marginTop:'5px'}}
@@ -72,7 +76,7 @@ const RecoverPassword = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  placeholder="Enter Your Email to Recover your Password"
+                  placeholder="Enter Email"
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -85,7 +89,7 @@ const RecoverPassword = () => {
               </div>
 
             </div>
-            <Button sx={{textTransform:'none',color:'#FFFFFF',fontSize:'20px',fontWeight:'500'}} variant="contained" color="primary" className='btn-rcoverupddate' onClick={handleSend} >
+            <Button sx={{textTransform:'none',color:'#FFFFFF',fontSize:'20px',fontWeight:'500',boxShadow: '0px 0px 9px 1px #00000040'}} variant="contained" color="primary" className='btn-rcoverupddate' onClick={handleSend} >
               Send
             </Button>
           </Box>

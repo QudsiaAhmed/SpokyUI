@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
 
 const MyChatBotButton = ({ onFilterChange }) => {
@@ -6,7 +6,6 @@ const MyChatBotButton = ({ onFilterChange }) => {
     display: 'flex',
     alignItems: 'center',
     gap: '0.5rem',
-    marginLeft: '25rem',
     marginTop: '2rem',
     marginBottom: '.5rem',
     boxShadow: 'none',
@@ -38,7 +37,7 @@ const MyChatBotButton = ({ onFilterChange }) => {
   };
 
   const rightButtonStyle = {
-    marginLeft: '20rem',
+    marginLeft: '27rem',
     background: '#62D2E9',
     borderRadius: '2rem',
     padding: '10px',
@@ -47,7 +46,8 @@ const MyChatBotButton = ({ onFilterChange }) => {
     color: '#fff',
   };
 
-  const [activeButton, setActiveButton] = useState(null);
+  // Set the default active button to 1 (All)
+  const [activeButton, setActiveButton] = React.useState(1);
 
   const handleButtonClick = (buttonId, buttonType) => {
     setActiveButton(buttonId);
@@ -104,9 +104,6 @@ const MyChatBotButton = ({ onFilterChange }) => {
 };
 
 export default MyChatBotButton;
-
-
-
 
 
 

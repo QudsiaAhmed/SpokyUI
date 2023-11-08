@@ -7,6 +7,8 @@ import { styled } from '@mui/system';
 import Icon from '../../Images/image 1 .png';
 import { SketchPicker } from 'react-color';
 import { useMediaQuery } from '@mui/material';
+import { useAtom } from 'jotai';
+import { userChanges } from '../../utils/jotai'
 
 const Item = styled(Grid)(({ theme }) => ({
   height: '100px',
@@ -18,10 +20,29 @@ const Item = styled(Grid)(({ theme }) => ({
 }));
 
 const Customize = () => {
+  const [change, setChange] = useAtom(userChanges);
+
+  console.log(change, 'change')
+  
+  const [fontSize, setFontSize] = useState('15');
+
+
+
   const [bgColor, setBgColor] = useState('#FFFFFF');
   const [fontColor, setFontColor] = useState('#000000');
+  const [chatBubbleColor, setChatBubbleColor] = useState('#B5AFAF');
+  const [sendMsgbutton, setMsgButton] = useState('#FF5841');
+  const [headergradient, setheadergradient] = useState('#C53678');
+  const [headertwogradient, setheadertwogradient] = useState('#C53678');
+
+  
   const [showBgColorPicker, setShowBgColorPicker] = useState(false);
   const [showFontColorPicker, setShowFontColorPicker] = useState(false);
+  const [showChatBubbleColorPicker, setShowChatBubbleColorPicker] = useState(false);
+  const [showMessagebuttonColorPicker, setShowMessagegbuttonColorPicker] = useState(false);
+  const [showheadergradientColorPicker, setShowheadergradientColorPicker] = useState(false);
+  const [showheadertwogradientColorPicker, setShowheadertwogradientColorPicker] = useState(false);
+
   const [buttonSelected, setButtonSelected] = useState(1);
   const isSmallScreen = useMediaQuery('(max-width:600px)');
   const isMediumScreen = useMediaQuery('(max-width:960px)');
@@ -29,40 +50,42 @@ const Customize = () => {
 
 
   const boxStyle = {
-    width: '100%', // Default width for small screens
+    // width: '100%',
     padding: '16px',
-    margin: '0 auto',
+    // margin: '0 auto',
     border: '1px solid #ccc',
     textAlign: 'left',
     borderRadius: '1rem',
     borderColor: '#62D2E9',
+    maxWidth:'none',
+    // backgroundColor:'red'
   };
-  
-  // Media queries for different screen sizes
+
   const smallScreenStyles = {
     width: '100%', // Adjust for small screens
     marginTop: '3rem',
     height: '100%',
+    marginLeft:'0',
   };
-  
+
   const mediumScreenStyles = {
     width: '90%', // Adjust for medium screens
     marginTop: '5rem',
     height: '100%',
   };
-  
+
   const largeScreenStyles = {
-    width: '40%', // Adjust for large screens
-    marginLeft: '25.5rem',
+    width: '54%', // Adjust for large screens
+    // marginLeft: '25.5rem',
     marginTop: '7rem',
     height: '80vh', // Adjust for extra large screens
 
   };
-  
+
   const extraLargeScreenStyles = {
     height: '80vh', // Adjust for extra large screens
   };
-  
+
 
   const headingStyle = {
     fontSize: '24px',
@@ -125,12 +148,28 @@ const Customize = () => {
         </Typography>
 
         <div style={{ display: 'flex', marginTop: '3rem', marginLeft: '1.3rem' }}>
-          <div style={{ marginRight: '2rem' }}>
-            <Typography variant="h3" style={headingStyleField}>
-              Font Size
-            </Typography>
-            <TextField label="Font size for the chat text in pixels." variant="outlined" style={{ display: 'block' }} />
-          </div>
+        <div style={{ marginRight: '2rem' }}>
+        <Typography variant="h3" style={headingStyleField}>
+          Font Size
+        </Typography>
+        <TextField
+          label="Font size for the chat text in pixels."
+          variant="outlined"
+          style={{ display: 'block' }}
+          value={change?.fontSize} // Set the value of the TextField to the state variable
+          onChange={(event) => {
+            const inputText = event.target.value;
+            // Use a regular expression to check if the input is a valid number
+            if (/^\d*$/.test(inputText)) {
+
+              setChange({...change, fontSize:event.target.value });
+
+              console.log('Font Size entered:', inputText); 
+            }
+          }}
+        />
+      </div>
+
 
           <div style={{ flex: 1 }}>
             <Typography variant="h3" style={headingStyleField}>
@@ -177,12 +216,13 @@ const Customize = () => {
                     height: '60px',
                     borderRadius: '50%',
                     border: '2px solid black',
-                    backgroundColor: bgColor,
+                    backgroundColor: change.backgroundcolor,
+
                   }}
                 >
                   {showBgColorPicker && (
                     <div style={{ position: 'absolute', zIndex: 2 }}>
-                      <SketchPicker color={bgColor} onChange={(color) => setBgColor(color.hex)} />
+                      <SketchPicker color={bgColor} onChange={(color) => setChange({ ...change, backgroundcolor: color.hex })} />
                     </div>
                   )}
                 </div>
@@ -203,87 +243,125 @@ const Customize = () => {
                     height: '60px',
                     borderRadius: '50%',
                     border: '2px solid black',
-                    backgroundColor: fontColor,
+                    backgroundColor: change.fontcolor,
                   }}
                 >
                   {showFontColorPicker && (
                     <div style={{ position: 'absolute', zIndex: 2 }}>
-                      <SketchPicker color={fontColor} onChange={(color) => setFontColor(color.hex)} />
+                      <SketchPicker color={fontColor} onChange={(color) => setChange({ ...change, fontcolor: color.hex })} />
                     </div>
                   )}
                 </div>
               </Item>
             </Grid>
             <Grid item xs={12} sm={6} md={4} lg={3} xl={3}>
-              <Item sx={{ borderRadius: '.5rem', height: '150px', display: 'flex', flexDirection: 'column' }}>
+              <Item
+                sx={{ borderRadius: '.5rem', height: '150px', display: 'flex', flexDirection: 'column', cursor: 'pointer' }}
+                onClick={() => setShowChatBubbleColorPicker(!showChatBubbleColorPicker)}
+              >
                 <Typography style={{ fontSize: '16px', color: '#252F3F', fontWeight: '500', marginBottom: '1rem' }}>
                   Chat bubble color
                 </Typography>
-                <Typography
+                <div
                   style={{
                     alignItems: 'center',
                     width: '60px',
                     height: '60px',
                     borderRadius: '50%',
                     border: '2px solid #B5AFAF',
-                    backgroundColor: '#B5AFAF',
+                    backgroundColor: change.chatbubblecolor,
                   }}
-                ></Typography>
+                >
+                  {showChatBubbleColorPicker && (
+                    <div style={{ position: 'absolute', zIndex: 2 }}>
+                      <SketchPicker color={chatBubbleColor} onChange={(color) => setChange({ ...change, chatbubblecolor: color.hex })} />
+                    </div>
+                  )}
+                </div>
               </Item>
             </Grid>
+
           </Grid>
         </Box>
 
-        <Grid container columns={12} sx={{ marginTop: '1.7rem', }}>
+        <Grid container columns={12} sx={{ marginTop: '1.7rem' }}>
           <Grid item xs={12} sm={6} md={4} lg={4} xl={4} >
-            <Item sx={{ borderRadius: '.5rem', height: '150px', display: 'flex', flexDirection: 'column' }}>
-              <Typography style={{ fontSize: '16px', color: '#252F3F', fontWeight: '500', marginBottom: '1rem' }}>
+            <Item sx={{ borderRadius: '.5rem', height: '150px', display: 'flex', flexDirection: 'column', cursor: 'pointer' }}
+              onClick={() => setShowMessagegbuttonColorPicker(!showMessagebuttonColorPicker)}
+            >
+              <Typography style={{ fontSize: '16px', color: '#252F3F', fontWeight: '500', marginBottom: '1rem' }}
+              >
                 'Send Message' Button Color
               </Typography>
-              <Typography
+
+              <div
                 style={{
                   alignItems: 'center',
                   width: '60px',
                   height: '60px',
                   borderRadius: '50%',
                   border: '2px solid #FF5841',
-                  backgroundColor: '#FF5841',
+                  backgroundColor: change.sendmessagebtn,
                 }}
-              ></Typography>
+              >
+                {showMessagebuttonColorPicker && (
+                  <div style={{ position: 'absolute', zIndex: 2 }}>
+                    <SketchPicker color={sendMsgbutton} onChange={(color) => setChange({ ...change, sendmessagebtn: color.hex })} />
+
+                  </div>
+                )}
+              </div>
             </Item>
           </Grid>
+
           <Grid item xs={12} sm={6} md={4} lg={4} xl={4} >
-            <Item sx={{ borderRadius: '.5rem', height: '150px', display: 'flex', flexDirection: 'column' }}>
+            <Item sx={{ borderRadius: '.5rem', height: '150px', display: 'flex', flexDirection: 'column' }}
+              onClick={() => setShowheadergradientColorPicker(!showheadergradientColorPicker)}
+            >
               <Typography style={{ fontSize: '16px', color: '#252F3F', fontWeight: '500', marginBottom: '1rem' }}>
                 Header Gradient Color 1
               </Typography>
-              <Typography
+              <div
                 style={{
                   alignItems: 'center',
                   width: '60px',
                   height: '60px',
                   borderRadius: '50%',
                   border: '2px solid #C53678',
-                  backgroundColor: '#C53678',
+                  backgroundColor: change.headergradient,
                 }}
-              ></Typography>
+              >
+                {showheadergradientColorPicker && (
+                  <div style={{ position: 'absolute', zIndex: 2 }}>
+                    <SketchPicker color={headergradient} onChange={(color) => setChange({ ...change, headergradient: color.hex })} />
+                  </div>
+                )}
+              </div>
             </Item>
           </Grid>
           <Grid item xs={12} sm={6} md={4} lg={4} xl={4} >
-            <Item sx={{ borderRadius: '.5rem', height: '150px', display: 'flex', flexDirection: 'column' }}>
+            <Item sx={{ borderRadius: '.5rem', height: '150px', display: 'flex', flexDirection: 'column', cursor: 'pointer' }}
+              onClick={() => setShowheadertwogradientColorPicker(!showheadertwogradientColorPicker)}
+            >
               <Typography style={{ fontSize: '16px', color: '#252F3F', fontWeight: '500', marginBottom: '1rem' }}>
                 Header Gradient Color 2
               </Typography>
-              <Typography
+              <div
                 style={{
                   alignItems: 'center',
                   width: '60px',
                   height: '60px',
                   borderRadius: '50%',
                   border: '2px solid #FF5841',
-                  backgroundColor: '#FF5841',
+                  backgroundColor: change.headertwogradieent,
                 }}
-              ></Typography>
+              >
+                {showheadertwogradientColorPicker && (
+                  <div style={{ position: 'absolute', zIndex: 2 }}>
+                    <SketchPicker color={headertwogradient} onChange={(color) => setChange({ ...change, headertwogradieent: color.hex })} />
+                  </div>
+                )}
+              </div>
             </Item>
           </Grid>
         </Grid>

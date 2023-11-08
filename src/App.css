@@ -1,3 +1,5 @@
+@import "~font-awesome/css/font-awesome.css";
+
 .App {
   text-align: center;
 }
@@ -22,6 +24,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
 }
 
 .App-link {
@@ -48,10 +51,7 @@
   
   @media (max-width: 1000px) {
     .ScreenContainer{
-    
       flex-direction: column;
-  
-      
       }
   
   }

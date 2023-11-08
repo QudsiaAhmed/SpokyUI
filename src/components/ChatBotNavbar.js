@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from React Router
+import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,10 +11,10 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import LogoutIcon from '@mui/icons-material/Logout'; // Import the Logout icon
+import LogoutIcon from '@mui/icons-material/Logout'; 
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-function Navbar() {
+function Navbar({collapsed}) {
   const isMobile = useMediaQuery('(max-width:600px)');
   const [isAccountBoxOpen, setIsAccountBoxOpen] = React.useState(false);
 
@@ -24,9 +24,8 @@ function Navbar() {
 
   return (
     <AppBar
-      position="fixed"
-      sx={{ backgroundColor: 'transparent', width: 'calc(100vw - 19rem)', marginTop: '1.1rem' }}
-      style={{ boxShadow: 'none' }}
+       position="sticky"
+       style={{backgroundColor:'transparent', boxShadow: 'none', marginLeft:collapsed?'130px': '18rem', width: collapsed?'calc(100% - 130px)'  :'calc(100% - 18rem)' }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -48,7 +47,6 @@ function Navbar() {
           >
             Create Chatbot
           </Typography>
-
           {isMobile && (
             <IconButton
               size="large"
@@ -89,7 +87,10 @@ function Navbar() {
               </Box>
             )}
           </Box>
+          
         </Toolbar>
+        <Typography sx={{color:'black',textAlign:'start',marginLeft:'5.2rem',color:'#00000080',fontSize:'16px',marginBottom:'.4rem'}}>Follow the steps below to build your own customize chatbot </Typography>
+
       </Container>
     </AppBar>
   );

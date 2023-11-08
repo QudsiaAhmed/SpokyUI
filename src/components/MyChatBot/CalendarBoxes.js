@@ -43,7 +43,7 @@ const CalendarBoxes = () => {
   return (
     <Box display="flex" marginLeft="25.5rem" marginTop="1rem"  >
       {data.map((item) => (
-        <div key={item.id} style={{ ...boxStyle, margin: '8px'}}>
+        <div key={item.id} style={{ ...boxStyle, margin: '8px' }}>
           <Paper style={{ ...boxStyle, ...borderStyle }}>
             <div style={headerStyle}>{item.month}</div>
           </Paper>

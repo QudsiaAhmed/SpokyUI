@@ -7,10 +7,16 @@ import LeftSide from './LeftSide';
 import { useLocation } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import './SetPassword.css';
+import { useMediaQuery } from '@mui/material';
+
 const SetPassword = () => {
+  const isSmallScreen = useMediaQuery('(max-width:1024px)'); 
+
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [repeatPassword, setRepeatPassword] = useState(''); // New state for repeated password
+  const [repeatPasswordError, setRepeatPasswordError] = useState(''); // New state for repeated password error
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -21,6 +27,11 @@ const SetPassword = () => {
     setPasswordError(''); // Reset password error on input change
   };
 
+  const handleRepeatPasswordChange = (e) => {
+    setRepeatPassword(e.target.value);
+    setRepeatPasswordError(''); // Reset repeated password error on input change
+  };
+
   const handlePasswordVisibilityToggle = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
@@ -29,6 +40,12 @@ const SetPassword = () => {
     if (password.length < 8) {
       setPasswordError('Password must be at least 8 characters long');
       setPassword(''); // Clear the password field
+      return;
+    }
+
+    if (password !== repeatPassword) {
+      setRepeatPasswordError('Passwords do not match');
+      setRepeatPassword(''); // Clear the repeated password field
       return;
     }
 
@@ -55,22 +72,23 @@ const SetPassword = () => {
       },
     }).then(() => {
       // After the alert is closed, navigate to the desired page
-      window.location.href = '/signin'; // Change '/signin' to your desired page
+      window.location.href = '/signin';
     });
   };
 
   return (
     <div className='ScreenContainer'>
-      <LeftSide />
-      <Container maxWidth="sm" className="pwd-container">
+  {isSmallScreen ? null : <LeftSide />} 
+    <Container maxWidth="sm" className="pwd-container">
         <Box className="pwd-box">
           <Typography variant="h4" className="setpassword" component="h1">
             Set Password
           </Typography>
           <div style={{ paddingLeft: "2rem" }}>
             <div className="input-group">
-              <Typography variant="body2" className="label-text">
+              <Typography variant="body2" className="label-text" sx={{ color: '#000000', fontSize: '15px', fontWeight: '700' }}>
                 Password
+                <span style={{ color: '#F51805' }}>*</span>
               </Typography>
               <TextField
                 value={password}
@@ -97,9 +115,39 @@ const SetPassword = () => {
                 helperText={passwordError}
               />
             </div>
+            <div className="input-group" style={{ marginTop: '1rem' }}>
+              <Typography variant="body2" className="repeat-password" sx={{ color: '#000000', fontSize: '15px', fontWeight: '700' }}>
+                Repeat Password
+                <span style={{ color: '#F51805' }}>*</span>
+              </Typography>
+              <TextField
+                value={repeatPassword}
+                onChange={handleRepeatPasswordChange}
+                placeholder="Repeat Password"
+                margin="normal"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LockIcon />
+                    </InputAdornment>
+                  ),
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton onClick={handlePasswordVisibilityToggle}>
+                        {isPasswordVisible ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+                className="responsive-input"
+                type={isPasswordVisible ? 'text' : 'password'}
+                error={repeatPasswordError !== ''}
+                helperText={repeatPasswordError}
+              />
+            </div>
           </div>
-          <Button sx={{textTransform:'none',color:'#FFFFFF',fontWeight:'500',fontSize:'20px'}} variant="contained" color="primary" className='btn-signupupdate' onClick={handleUpdatePassword}>
-            Update
+          <Button sx={{ textTransform: 'none', color: '#FFFFFF', fontWeight: '500', fontSize: '20px',boxShadow: '0px 0px 9px 1px #00000040' }} variant="contained" color="primary" className='btn-signupupdate' onClick={handleUpdatePassword}>
+            Done
           </Button>
         </Box>
       </Container>
@@ -108,3 +156,4 @@ const SetPassword = () => {
 }
 
 export default SetPassword;
+

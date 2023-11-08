@@ -10,9 +10,9 @@ const LeftSide = () => {
       </div>
       <div className='chatbotheading'>
         <h1>
-          <span>Start your</span>
-          <span>Journey with</span>
-          <span>your own AI</span>
+          <span>Start Your</span>
+          <span>Journey With</span>
+          <span>Your Own AI</span>
           <span>Chatbot.</span>
         </h1>
       </div>

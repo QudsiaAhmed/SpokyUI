@@ -9,9 +9,13 @@ const Transactionbtn = () => {
 
   const buttonStyle = {
     position: 'absolute',
-    top: isSmallScreen ? '3rem' : '10rem', // Adjust the top margin for different screens
-    right: isMediumScreen ? '1rem' : '8rem', // Adjust the right position for different screens
+    top: isSmallScreen ? '3rem' : (isMediumScreen ? '6rem' : '10rem'),
+    right: isMediumScreen ? '1rem' : '8rem',
   };
+
+  const buttonWidth = isSmallScreen ? '80%' : (isMediumScreen ? '50%' : '20%');
+  const buttonMarginLeft = isSmallScreen ? '1rem' : (isMediumScreen ? '32rem' : '80%');
+  const buttonFontSize = isSmallScreen ? '10px' : (isMediumScreen ? '12px' : '13.15px');
 
   return (
     <div>
@@ -21,20 +25,20 @@ const Transactionbtn = () => {
         sx={{
           marginTop: '1.5rem',
           marginBottom: '1rem',
-          marginLeft: isSmallScreen ? '1rem' : '64rem', // Adjust the left margin for small screens
+          marginLeft: buttonMarginLeft,
           backgroundColor: 'transparent',
           color: '#FF8C7D',
-          border: '1px solid #FF8C7D', // Add border
-          borderRadius:'33px',
-          fontFamily:'Outfit',
-          fontWeight:'500',
-          fontSize:"13.15px",
-          width:'20%',
-          height:"35px",
-          padding:"20px",
+          border: '1px solid #FF8C7D',
+          borderRadius: '33px',
+          fontFamily: 'Outfit',
+          fontWeight: '500',
+          fontSize: buttonFontSize,
+          width: buttonWidth,
+          height: "35px",
+          padding: "20px",
           '&:hover': {
             backgroundColor: 'transparent',
-            fontSize: '13.15px',
+            fontSize: buttonFontSize,
             fontWeight: '500',
           },
         }}

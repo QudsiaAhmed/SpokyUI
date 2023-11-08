@@ -7,8 +7,11 @@ import LeftSide from './LeftSide';
 import './SetPassword.css';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { useMediaQuery } from '@mui/material';
 
 const UpdatePassword = () => {
+  const isSmallScreen = useMediaQuery('(max-width:1024px)'); 
+
   const [formData, setFormData] = useState({
     newPassword: '',
     repeatPassword: '',
@@ -72,23 +75,26 @@ const UpdatePassword = () => {
 
   return (
     <div className='ScreenContainer'>
-      <LeftSide />
+  {isSmallScreen ? null : <LeftSide />} 
       <Container maxWidth="sm" className="pwd-container">
         <Box className="pwd-box">
-          <Typography variant="h4" className="updatepassword" component="h1" style={{ fontFamily: 'Outfit', fontWeight: 'bold', fontSize: '42px', marginBottom: '2rem' }}>
+          <Typography variant="h4" className="updatepassword" component="h1" style={{ fontFamily: 'Outfit', fontWeight: 'bold', fontSize: '40px', marginBottom: '2rem' }}>
             Update New Password
+
           </Typography>
           <div style={{ paddingLeft: "2rem" }}>
             <div className="input-group">
               <Typography variant="body2" className="label-text" sx={{ color: '#000000', fontSize: '15px', fontWeight: '700' }}>
                 New Password
+                <span style={{ color: '#F51805' }}>*</span>
+
               </Typography>
               <TextField
                 name="newPassword"
                 value={formData.newPassword}
                 onChange={handleInputChange}
                 margin="normal"
-                placeholder="Enter New Password"
+                placeholder="Enter Password"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -113,6 +119,8 @@ const UpdatePassword = () => {
             <div className="input-group">
               <Typography variant="body2" className="repeat-password" sx={{ color: '#000000', fontSize: '15px', fontWeight: '700' }}>
                 Repeat Password
+                <span style={{ color: '#F51805' }}>*</span>
+
               </Typography>
               <TextField
                 name="repeatPassword"
@@ -120,7 +128,7 @@ const UpdatePassword = () => {
                 onChange={handleInputChange}
                 variant="outlined"
                 margin="normal"
-                placeholder="Enter Your New Password Again For Confirmation"
+                placeholder="Repeat password"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -145,7 +153,7 @@ const UpdatePassword = () => {
               {passwordError}
             </Typography>
           </div>
-          <Button sx={{textTransform:"none",color:'#FFFFFF',fontSize:'20px',fontWeight:'500'}} variant="contained" color="primary" className='btn-updatepaswword' onClick={handleUpdate}>
+          <Button sx={{textTransform:"none",color:'#FFFFFF',fontSize:'20px',fontWeight:'500',boxShadow:'0px 0px 9px 1px #00000040'}} variant="contained" color="primary" className='btn-updatepaswword' onClick={handleUpdate}>
             Update
           </Button>
         </Box>

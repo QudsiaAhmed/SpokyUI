@@ -8,16 +8,18 @@ body, html {
   /* margin-top: 2rem; */
   width: 60%;
 }
-
+.signupp{
+  margin-top: .8rem !important;
+}
 .signup-box {
-  width: 92%;
+  /* width: 92%; */
   height: auto;
   border-radius: 35px;
   border: 1px solid #FF5841;
   position: relative;
-  /* top: 10px; */
   padding: 1rem;
   text-align: left;
+  margin-left: .2rem;
 }
 
 .signup-box h1 {
@@ -40,8 +42,8 @@ body, html {
   padding-left: 4rem;
 }
 .btn-signupbutton {
-  width: 70% !important;
-  left: 4.4rem !important;
+  width: 76% !important;
+  left: 4rem !important;
   height: 50px;
   padding: 19px, 0px, 20px, 0px;
   gap: 8px;
@@ -87,6 +89,14 @@ body, html {
   width: 100vw;
 }
 
+@media (max-width: 1024px) {
+  .signup-container {
+    margin-top: 2rem;
+
+  }
+ 
+
+}
 @media (max-width: 1000px) {
   .signup-box{
     margin-bottom: 1rem;
@@ -108,12 +118,57 @@ body, html {
     margin-top: 1rem;
   }
 }
-@media (max-width: 400px) {
-  /* .btn-signupbutton{
-    width: 10rem !important;
-    left: 1rem;
-  } */
-  .dont-have-account {
-    
+
+@media (max-width: 431px) {
+  .inputdatasignin{
+    padding-left: 2rem !important;
+  
   }
+  .signupheading{
+    padding-left: 2rem !important;
+font-size: 2.3rem !important;
+  }
+  .signupp{
+    padding-left: 2rem !important;
+
+  }
+  .btn-signupbutton{
+    min-width: 17rem !important;
+    left: 2rem !important;
+    border-radius: 50px !important;
+
+  }
+  .dont-have-account {
+    font-size: 16px;
+    margin-left: .5rem !important;
+
 }
+.gogleimg{
+  margin-right: 2.5rem !important;
+
+}
+  }
+
+@media (max-width: 390px) {
+  .signup-container {
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+.btn-signupbutton{
+  min-width: 1.3rem !important;
+  left: 2.5rem !important;
+  border-radius: 50px !important;
+
+}
+  .dont-have-account {
+  font-size: 16px !important;
+  margin-left: -.5rem !important;
+
+}
+
+.gogleimgsignin{
+  margin-left: .2rem;
+}
+
+}
+

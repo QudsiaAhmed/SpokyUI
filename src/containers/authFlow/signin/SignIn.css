@@ -5,13 +5,14 @@
 }
 
 .signin-box {
-  width: 100%;
+  /* width: 100%; */
   height: auto;
   border-radius: 35px;
   border: 1px solid #FF5841;
   position: relative;
   padding: 1rem;
   text-align: left;
+  margin-left: .2rem;
 }
 
 
@@ -29,7 +30,7 @@
 }
 
 .btn-signIn {
-  width: 70% !important;
+  width: 75% !important;
   left: 4.5rem;
   height: 50px;
   padding: 19px, 0px, 20px, 0px;
@@ -44,7 +45,7 @@
   padding-left: 4rem;
 }
 
-.dont-have-accountin{
+.dont-have-accountin {
   margin-top: 3rem;
   font-size: 20px;
   margin-left: 15%;
@@ -80,11 +81,13 @@
   height: 100vh;
   width: 100vw;
 }
+
 @media (max-width: 1000px) {
-  .signin-box{
+  .signin-box {
     margin-bottom: 1rem;
-      }
+  }
 }
+
 /* Small screens (sm) */
 @media (max-width: 600px) {
   .signin-box {
@@ -108,14 +111,16 @@
     border-radius: 50px !important;
 
   }
-  .signin-box{
+
+  .signin-box {
     margin-bottom: 1rem;
-      }
+  }
+
   .signin-box h1 {
     margin: 0;
     padding: 0;
     margin-top: 1rem;
-    font-size: 2rem !important;
+    font-size: 3rem !important;
     margin-left: 3.5rem;
   }
 
@@ -130,7 +135,7 @@
     margin-top: 1rem;
   }
 
-  .dont-have-accountin{
+  .dont-have-accountin {
     margin-top: 2rem;
     font-size: 16px;
     margin-left: 4rem !important;
@@ -159,6 +164,7 @@
     font-size: 13px !important;
   }
 }
+
 /* width 500px or less */
 @media (max-width: 500px) {
   .signin-box {
@@ -173,16 +179,17 @@
   .inputdiv {
     padding-left: 3rem;
   }
-  .signin-box{
+
+  .signin-box {
     margin-bottom: 1rem;
-      }
-  
+  }
+
 
   .signin-box h1 {
     margin: 0;
     padding-left: 3rem;
     margin-top: 3rem;
-    font-size: 2rem !important;
+    font-size: 3rem !important;
   }
 
   .email-input,
@@ -197,7 +204,7 @@
     margin-top: 1rem;
   }
 
-  .dont-have-accountin{
+  .dont-have-accountin {
     margin-top: 2.3rem;
     font-size: 16px;
     margin-left: 3rem !important;
@@ -226,20 +233,29 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 431px) {
   .forgot-password {
     margin-right: 4rem !important;
     font-size: 13px !important;
   }
+  /* .dont-have-accountin{
+    margin-left: 20px !important;
+  } */
+.or{
+  margin-right: 2rem !important;
+}
+  .gogglesignin {
+    /* margin-top: 1rem !important; */
+    margin-right: 2rem !important;
 
-  .gogleimgsignin {
-    margin-top: 1rem;
-    margin-left: 2rem;
   }
-
+.forgot-password{
+  margin-right: 16% !important;
+  }
+  
   .btn-signIn {
     min-width: 15rem;
-    left: 2rem;
+    left: 2.7rem;
     border-radius: 50px !important;
   }
 
@@ -247,16 +263,16 @@
     padding-left: 2rem;
   }
 
-  .dont-have-accountin{
+  .dont-have-accountin {
     font-size: 16px;
-    margin-left: 1rem !important;
+    margin-left: 2rem !important;
   }
 
   .signin-box h1 {
     margin: 0;
     padding-left: 2rem;
     margin-top: 1.7rem;
-    font-size: 1.8rem !important;
+    font-size: 3rem !important;
   }
 
   .signin-box p {
@@ -265,9 +281,14 @@
     padding-left: 2rem;
     margin-top: 1rem;
   }
-  .signin-box{
+
+  /* .signin-box{
 margin-bottom: 1rem;
+  } */
+  .signin-container {
+    margin-top: '0';
   }
+
 }
 
 .ScreenContainer {
@@ -278,15 +299,59 @@ margin-bottom: 1rem;
 
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .ScreenContainer {
-
     flex-direction: column;
-
-
   }
 
+  .signin-container {
+    margin-top: 5rem;
+  }
+  .signin-box{
+    border-radius: 20px;
+  }
 }
+
 .custom-ok-button-class {
   background-color: #F27474 !important;
 }
+
+@media (max-width: 391px) {
+  .signin-container {
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+.forgot-password{
+margin-right: 16% !important;
+}
+.btn-signIn{
+  width: 76% !important;
+}
+.dont-have-accountin{
+  margin-left: 1rem !important;
+  font-size: 12px !important;
+}
+.gogleimgsignin{
+  margin-left: .2rem;
+}
+}
+/* @media (max-width: 461px) {
+  .btn-signIn {
+    left: 3rem;
+    border-radius: 50px !important;
+  }
+  .forgot-password{
+    margin-right: 15% !important;
+    }
+    
+}
+@media (max-width: 517px) {
+  .forgot-password{
+    margin-right: 14% !important;
+    }
+    .btn-signIn {
+      left: 3.3rem;
+      border-radius: 50px !important;
+    }
+  
+} */
